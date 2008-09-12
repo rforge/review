@@ -1,91 +1,41 @@
 \name{log.queue}
 \alias{log.queue}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Prepare Records for Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Create one or more records with the proper format for appending to a review log.
 }
 \usage{
 log.queue(directory = getwd(), file = dir(), revision = 0, author = NULL, reviewer = "anyone", task = "review", time = Sys.time(), approved = 0, force = FALSE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
-  \item{file}{ ~~Describe \code{file} here~~ }
-  \item{revision}{ ~~Describe \code{revision} here~~ }
-  \item{author}{ ~~Describe \code{author} here~~ }
-  \item{reviewer}{ ~~Describe \code{reviewer} here~~ }
-  \item{task}{ ~~Describe \code{task} here~~ }
-  \item{time}{ ~~Describe \code{time} here~~ }
-  \item{approved}{ ~~Describe \code{approved} here~~ }
-  \item{force}{ ~~Describe \code{force} here~~ }
+  \item{directory}{ the parent of file }
+  \item{file}{ one or more files for which to create records}
+  \item{revision}{ the svn revision of the file being reviewed }
+  \item{author}{ the svn author of the file being reviewed }
+  \item{reviewer}{  the user issuing the opinion, normally oneself }
+  \item{task}{ specific review task, arbitrary content }
+  \item{time}{ time of log entry: YYYY-MM-DD HH:MM:SS }
+  \item{approved}{ 1 (yes) or 0 (no) }
+  \item{force}{if false (the default) nonexistent files cause an error  }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  The required format for a review log is described in \code{\link{log.create}}. 
+  Functions like log.assign() and log.pass() send output to the log.  The function
+  log.queue() creates a data.frame that can be viewed, assigned, and manipulated prior
+  to appending the log.  You may want to use log.queue() in conjunction with log.append().
+  That is exactly what log.assign(), log.pass(), and log.fail() do.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+data.frame, with a format much like QClog.csv.
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.create}},
+\code{\link{log.assign}},
+\code{\link{log.pass}},
+\code{\link{log.fail}}, 
+\code{\link{log.append}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(
-	directory=getwd(),
-	file=dir(), 
-	revision=0,
-	author=NULL,
-	reviewer="anyone",
-	task="review",
-	time=Sys.time(),
-	approved=0,
-	force=FALSE
-){
-	coerce <- function(arg){
-		x <- get(arg)
-		if(length(x)==1) x <- rep(x,length(file))
-		if(length(x)!=length(file))stop(paste(arg,"should be length 1, or length(file)"))
-		x
-	}
-	if(length(directory)!=1)stop("directory should have length one")
-	if(!is.character(file))stop("file should be character")
-	if(!file_test("-d",directory))stop("directory not found")
-	if(is.null(author))author <- sapply(log.target(directory,file,force),author)
-	names(author) <- NULL
-	directory <- abs.dir(directory)
-	file <- sub("^/+","",file)
-	revision <- coerce("revision")
-	author <- coerce("author")
-	reviewer <- coerce("reviewer")
-	task <- coerce("task")
-	time <- coerce("time")
-	approved <- coerce("approved")
-	target <- log.target(directory,file,force)
-	data.frame(
-		file=rel.path(directory,file),
-		revision=revision,
-		author=author,
-		reviewer=reviewer,
-		task=task,
-		time=as.character(time),
-		approved=approved
-	)
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

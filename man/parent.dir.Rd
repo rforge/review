@@ -1,55 +1,29 @@
 \name{parent.dir}
 \alias{parent.dir}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Identify the Parent of a Directory }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Generate a fully qualified directory name for the parent of the specified directory.
 }
 \usage{
 parent.dir(directory = getwd())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ the directory whose parent is sought }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  It is an error if the directory does not exist.  If it exists but has no parent,
+  NULL is returned. The path includes the volume root.  This function is not 
+  vectorized.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+character
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{abs.dir}},
+\code{\link{rel.path}},
+\code{\link{log.root}},
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd()){
-	if(!file_test("-d",directory))stop(paste("nonexistent directory:",directory))
-	directory <- abs.dir(directory)
-	start <- getwd()
-	setwd(directory)
-	parent <- NULL
-	if(file_test("-d","..")){
-		setwd("..")
-		if(getwd()!=abs.dir(directory)) parent <- getwd()
-	}
-	setwd(start)
-	parent
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

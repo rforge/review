@@ -1,55 +1,30 @@
 \name{log.read}
 \alias{log.read}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Read a Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Read a review log from storage and create a corresponding data.frame.
 }
 \usage{
 log.read(directory = getwd())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ the directory containing the log, or any directory below it }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Regardless of the current working directory, if the directory containing the log
+  is an ancestor (parent, grandparent, etc.) the log will be found and read. It is
+  an error if the directory does not exist or if the log does not exist.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+data.frame with format much like QClog.csv
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.create}},
+\code{\link{log.root}},
+\code{\link{log.append}},
+\code{\link{log.write}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd()){
-	if(!file_test("-d",directory))stop(paste("nonexistent directory:",directory))
-	root <- log.root(directory)
-	if(is.null(root))stop(paste(abs.dir(directory),"does not have a log root"))
-	read.table(
-		log.name(log.root(directory)),
-		header=TRUE,
-		sep=",",
-		as.is=TRUE,
-		na.strings=".",
-		strip.white=TRUE
-	)
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

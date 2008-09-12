@@ -1,50 +1,30 @@
 \name{rel.path}
 \alias{rel.path}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Create File Paths Relative to the Log Root }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  For the files specified by the arguments, create file names paths relative to
+  the directory containing the review log.
 }
 \usage{
 rel.path(directory = getwd(), file = dir())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
-  \item{file}{ ~~Describe \code{file} here~~ }
+  \item{directory}{ the parent of file }
+  \item{file}{ one or more files for which to create paths}
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  The elements of 'file' must be encoded relative to 'directory'.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+character vector
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{parent.dir}},
+\code{\link{abs.dir}},
+\code{\link{log.root}},
+\code{\link{help}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd(), file=dir()){
-	rel.dir <- sub("^/","",sub(log.root(),"",abs.dir(directory),fixed=TRUE))
-	rel.path <- paste(rel.dir,file,sep="/")
-	rel.path[!file.exists(paste(directory,file,sep="/"))] <- NA
-	rel.path <- sub("^/","",rel.path)
-	rel.path
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

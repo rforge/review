@@ -1,43 +1,29 @@
 \name{log.name}
 \alias{log.name}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ The Full Path and Name of the Log File }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Gives a full-path log name for the directory supplied. The default directory
+  is log.root(), in which case the file must already exist.
 }
 \usage{
 log.name(directory = log.root())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ a directory for which a log name is desired }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Without arguments, returns full path to log file when current directory is at
+  or below the root (directory containing the log).
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+character
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.root()}},
+\code{\link{abs.dir}},
+\code{\link{log.create}},
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=log.root())paste(abs.dir(directory),"QClog.csv",sep="/")
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

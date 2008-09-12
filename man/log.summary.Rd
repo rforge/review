@@ -1,53 +1,39 @@
 \name{log.summary}
 \alias{log.summary}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Summarize a Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Summarize the review log associated with a particular directory.
 }
 \usage{
 log.summary(directory = getwd())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ the directory containing the log, or any directory below it }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Whereas the review log can have any number of records for the same file, the
+  summary reduces the data to one record per file.  It is an error if any element
+  of the file column is missing.  
+  
+  The log is read, then sorted on file, revision, and time, in ascending order.  
+  The last record for each unique file is retained.
+  
+  The function log.summary() uses the svn interface to retrieve the current 
+  revision number of each file, appending the information as the column 'commit'.
+  
+  Be sure to update your checkout for the most current summary.  In particular,
+  this ensures that the latest values of 'commit' are represented.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+data.frame
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.pending}},
+\code{\link{log.assignments}},
+\code{\link{log.read}},
+\code{\link{log.target}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd()){
-	log <- log.read(directory)
-	if(any(is.na(log$file)))stop("missing file names in log")
-	log <- log[order(log$file,log$revision,log$time),]
-	log <- log[rev(rownames(log)),]
-	log <- log[!duplicated(log$file),]
-	log <- log[rev(rownames(log)),]
-	target <- log.target(log.root(directory),log$file,force=TRUE)
-	log$commit <- sapply(target,revision)
-	log
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

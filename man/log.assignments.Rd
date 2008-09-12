@@ -1,48 +1,31 @@
 \name{log.assignments}
 \alias{log.assignments}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Detect Files to be Reviewed }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Gives a vector of the pending files assigned to reviewer (normally oneself).
 }
 \usage{
 log.assignments(directory = getwd(), reviewer = Sys.info()[["login"]])
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
-  \item{reviewer}{ ~~Describe \code{reviewer} here~~ }
+  \item{directory}{ the directory containing the log, or any directory below it  }
+  \item{reviewer}{a user name on which to filter results }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  "Pending" has the meaning described for log.pending().  "Assigned" has the meaning
+  described for log.assign().  A character vector is returned, from which elements
+  can be selected for use as arguments to log.pass() or log.fail().
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+character
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.pending}},
+\code{\link{log.assign}},
+\code{\link{log.pass}},
+\code{\link{log.fail}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd(),reviewer=Sys.info()[['login']]){
-	log <- log.pending(directory)
-	if(!is.null(reviewer)) log <- log[log$reviewer \%in\% reviewer,]
-	log[,"file"]
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -1,51 +1,33 @@
 \name{log.write}
 \alias{log.write}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Write a Review Log to Storage in Standard Format }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Write a review log, using the same formatting conventions as log.read().
 }
 \usage{
 log.write(x, file)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{ ~~Describe \code{x} here~~ }
-  \item{file}{ ~~Describe \code{file} here~~ }
+  \item{x}{ a data.frame, like the output of log.queue() }
+  \item{file}{ a file name }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Calls write.table() with quotes and rownames turned off.  Separator is comma,
+  NA's are dots.
+  
+  Normally the user should not have to call log.write().  The functions 
+  log.create(), log.append(), and log.revert() call it.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+Used for side effects.
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.read}},
+\code{\link{log.create}},
+\code{\link{log.append}},
+\code{\link{help}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(x,file)write.table(
-	x,
-	file=file,
-	quote=FALSE,
-	sep=",",
-	na=".",
-	row.names=FALSE
-)
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

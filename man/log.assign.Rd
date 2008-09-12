@@ -1,48 +1,35 @@
 \name{log.assign}
 \alias{log.assign}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Assign Review Ttasks }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Appends a log with defaults supplied by log.queue().  These are appropriate
+  for assigments, with default reviewer set to "anyone" and default approved set
+  to 0.  Default revision is also zero, which is diagnostic.
 }
 \usage{
 log.assign(directory = getwd(), file = dir(), ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
-  \item{file}{ ~~Describe \code{file} here~~ }
-  \item{\dots}{ ~~Describe \code{\dots} here~~ }
+  \item{directory}{ the parent of 'file' }
+  \item{file}{ a character vector of filenames (paths) relative to directory }
+  \item{\dots}{ arguments passed to log.queue() }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Since files with revision of zero normally do not exist,  the other fields are
+  not really informative, except for reviewer.  This function may be used to 
+  specify a reviewer for certain files, regardless of review number.  Default reviewer 
+  "anyone" simply declares that an entitity should be reviewed.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+(invisible) the number of records created..
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.assignments}},
+\code{\link{log.append}},
+\code{\link{log.queue}},
+\code{\link{log.pass}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd(),file=dir(),...)log.append(
-	log.root(directory),
-	log.queue(directory,file,...)
-)
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

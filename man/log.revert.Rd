@@ -1,60 +1,38 @@
 \name{log.revert}
 \alias{log.revert}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Revert a Change to a Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Undo the most recent addition(s) to a review log made during this session.
 }
 \usage{
 log.revert(directory = log.root())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ the directory containing the log, or any directory below it }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  The function log.append() maintains an object in the global environment called
+  \code{log.history}, which tracks the number of records associated with each 
+  invocation of log.append().  This allows the user to undo recent additions
+  sequentially (backwards). The capability persists until the session ends, at 
+  which time log.history no longer exists.  It is an error to revert if no changes
+  were made or if all changes were reverted already.
+  
+  Do not confuse log.revert() with \code{svn revert}.  The latter is a command line function
+  that reverses all changes since last commit, and can be used only once.
+  The former is an R function that reverses all changes since last append, and 
+  can be used as many times as there were append actions in this session.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+(invisible) the number of records removed from the end of the log file
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.append}},
+\code{\link{log.assign}},
+\code{\link{log.pass}},
+\code{\link{log.fail}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=log.root()){
-	old <- log.read(directory)
-	file <- log.name(directory)
-	if(exists("log.history",where=1))	history <- get("log.history",pos=1)
-	else stop("no log history in this session")
-	if(!file \%in\% names(history))stop(paste("no history for",file,"in this session"))
-	recent <- length(history[[file]])
-	revert <- history[[file]][[recent]]
-	if(recent==1) history[[file]] <- NULL
-	else history[[file]] <- history[[file]][1:recent-1]
-	if(revert > nrow(old))stop("history inconsistent with log state")
-	if(nrow(old)==0)stop("log has no records")
-	row.names(old) <- nrow(old):1
-	old <- old[as.numeric(row.names(old)) > revert,]
-	log.write(old,file=file)
-	assign("log.history",history,pos=1)
-	invisible(revert)
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -1,57 +1,31 @@
 \name{log.append}
 \alias{log.append}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Append a Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Add records to a review log.
 }
 \usage{
 log.append(directory = log.root(), new, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
-  \item{new}{ ~~Describe \code{new} here~~ }
-  \item{\dots}{ ~~Describe \code{\dots} here~~ }
+  \item{directory}{ the directory containing the log, or any directory below it }
+  \item{new}{ a data.frame of new records to append, as created with log.queue(). }
+  \item{\dots}{ arguments passed to log.queue(). }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Generally this function is not called by the user.  Check "see also" for preferred interface.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+(invisible) the number of rows added
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.assign}},
+\code{\link{log.pass}},
+\code{\link{log.fail}},
+\code{\link{log.grade}}, 
+\code{\link{log.queue}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=log.root(),new,...){
-	old <- log.read(directory)
-	file <- log.name(directory)
-	mix <- rbind(old,new)
-	log.write(mix,file=file)
-	history <- list()
-	if(exists("log.history",where=1)) history <- get("log.history",pos=1)
-	newrows <- nrow(new)
-	if(is.null(history[[file]])) history[[file]] <- newrows
-	else history[[file]] <- append(history[[file]],newrows)
-	if(newrows > 0) assign("log.history",history,pos=1)
-	invisible(newrows)
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

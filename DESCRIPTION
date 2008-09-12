@@ -1,10 +1,11 @@
 Package: review
 Type: Package
-Title: What the package does (short line)
+Title: Manage Review Logs
 Version: 1.0
 Date: 2008-09-11
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Tim Bergsma
+Maintainer: Tim Bergsma <timb@metrumrg.com>
+Depends: XML
+Description: Functions for managing logs of reviews of subversioned files.
+License: GPL2.
 LazyLoad: yes

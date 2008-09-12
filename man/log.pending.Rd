@@ -1,46 +1,30 @@
 \name{log.pending}
 \alias{log.pending}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ List Log Entries that Require (Further) Review }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Checks the log summary and returns entries for files whose most recent action
+  is disapproval, as well as approved files that have been surpassed by more recent
+  versions.
 }
 \usage{
 log.pending(directory = getwd())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ any directory at or below that containing the log. }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Be sure to update your checkout for the latest pending information.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+data.frame
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.summary}},
+\code{\link{log.assignments}},
+\code{\link{log.assign}},
+\code{\link{log.pass}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd()){
-	log <- log.summary(directory)
-	log[with(log,commit > revision | approved == 0),]
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

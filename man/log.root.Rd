@@ -1,53 +1,30 @@
 \name{log.root}
 \alias{log.root}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Identify the Directory Containing the Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  This function searches backward from the current working directory until it finds
+  the directory containing the review log.  If no log is found, NULL is returned.
+  It is an error if the directory argument does not exist.
 }
 \usage{
 log.root(directory = getwd())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{ the directory containing the log, or any directory below it }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  This is a recursive function.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+character: the full path and name of the directory containing the review log.
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{parent.dir}},
+\code{\link{log.name}},
+\code{\link{log.create}},
+\code{\link{log.append}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd()){
-	if(!file_test("-d",directory))stop(paste("nonexistent directory:",directory))
-	start <- getwd()
-	setwd(directory)
-	root <- NULL
-	parent <- parent.dir(getwd())
-	if(file.exists(log.name(getwd()))) root <- getwd()
-	else if(!is.null(parent)) root <- log.root(parent)
-	setwd(start)
-	root
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

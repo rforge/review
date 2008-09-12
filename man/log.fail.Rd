@@ -1,69 +1,33 @@
 \name{log.fail}
 \alias{log.fail}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Dissaprove a File }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Indicate rejection of a file by logging an entry with 'approved' equal to 0.
 }
 \usage{
 log.fail(directory = getwd(), file = dir(), reviewer = Sys.info()["login"], approved = 0, force = FALSE, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
-  \item{file}{ ~~Describe \code{file} here~~ }
-  \item{reviewer}{ ~~Describe \code{reviewer} here~~ }
-  \item{approved}{ ~~Describe \code{approved} here~~ }
-  \item{force}{ ~~Describe \code{force} here~~ }
-  \item{\dots}{ ~~Describe \code{\dots} here~~ }
+  \item{directory}{ the parent of file }
+  \item{file}{ one or more files to reject }
+  \item{reviewer}{ the user issuing the opinion, normally oneself }
+  \item{approved}{ coerced to zero, regardless of the value supplied }
+  \item{force}{ if false (default) nonexistent files cause an error }
+  \item{\dots}{ arguments passed to log.queue }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Can be undone with log.revert().
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+(invisible) number of records created.
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.assign}},
+\code{\link{log.pass}},
+\code{\link{log.queue}},
+\code{\link{log.revert}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(
-	directory=getwd(),
-	file=dir(),
-	reviewer=Sys.info()['login'],
-	approved=0,force=FALSE,
-	...
-){
-	target <- log.target(directory,file,force)
-	revision <- sapply(target,revision)
-	log.append(
-		directory,
-		log.queue(
-			directory,
-			file,
-			revision=revision,
-			reviewer=reviewer,
-			approved=0,
-			force=force,
-			...
-		)
-	)
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -1,43 +1,27 @@
 \name{repo.info}
 \alias{repo.info}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Retrieve Repository Information }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  For a given file, retrieve svn repository information as XML.
 }
 \usage{
 repo.info(file = log.root())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{file}{ ~~Describe \code{file} here~~ }
+  \item{file}{a file name }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Not normally called by the user.
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+	an XML representation of \code{svn info}
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{revision}},
+\code{\link{author}},
+\code{\link{log.root}},
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(file=log.root())paste(system(paste("svn info --xml",file),intern=TRUE),collapse="")
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

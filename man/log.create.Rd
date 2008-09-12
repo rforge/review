@@ -1,57 +1,34 @@
 \name{log.create}
 \alias{log.create}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{ Create a Review Log }
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Creates an empty table in the directory specified with name "QClog.csv"
 }
 \usage{
 log.create(directory = getwd())
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{directory}{ ~~Describe \code{directory} here~~ }
+  \item{directory}{directory in which to create the log file}
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Column names are file, revision, author, reviewer, task, time, and approved.  
+  Entries for 'file' will be relative to the specified directory, and will not 
+  begin with "/".  Entries for 'revision' should reflect the reviewed revision of the
+  file.  Entries for 'author' should be the svn author of the reviewed revision.
+  Entries for 'reviewer' should be the R login of the reviewer.  Entries for 'task'
+  can be arbitrary, 'review' by default. Entries for 'time' should be character
+  in the format YYYY-MM-DD HH:MM:SS.  Entries for 'approved' should be 1 (yes) or 0 (no).
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+used for side effects.
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ http://metruminstitute.org }
+\author{ Tim Bergsma }
+\seealso{
+\code{\link{log.name}},
+\code{\link{log.assign}},
+\code{\link{log.pass}},
+\code{\link{log.fail}}, 
+}
+\keyword{manip}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
-}
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(directory=getwd()){
-	if(file.exists(log.name(directory)))stop("log exists")
-	log.write(
-		data.frame(
-			file=character(0),
-			revision=integer(0),
-			author=character(0),
-			reviewer=character(0),
-			task=character(0),
-			time=character(0),
-			approved=integer(0)
-		),
-		file=log.name(directory)
-	)
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
