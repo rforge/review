@@ -21,7 +21,7 @@ character
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{log.root()}},
+\code{\link{log.root}},
 \code{\link{abs.dir}},
 \code{\link{log.create}},
 }

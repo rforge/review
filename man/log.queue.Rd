@@ -5,7 +5,17 @@
   Create one or more records with the proper format for appending to a review log.
 }
 \usage{
-log.queue(directory = getwd(), file = dir(), revision = 0, author = NULL, reviewer = "anyone", task = "review", time = Sys.time(), approved = 0, force = FALSE)
+log.queue(
+	directory = getwd(), 
+	file = dir(), 
+	revision = 0, 
+	author = NULL, 
+	reviewer = "anyone", 
+	task = "review", 
+	time = Sys.time(), 
+	approved = 0, 
+	force = FALSE
+)
 }
 \arguments{
   \item{directory}{ the parent of file }
@@ -26,7 +36,7 @@ log.queue(directory = getwd(), file = dir(), revision = 0, author = NULL, review
   That is exactly what log.assign(), log.pass(), and log.fail() do.
 }
 \value{
-data.frame, with a format much like QClog.csv.
+data.frame, with a format much like QClog.csv
 }
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }

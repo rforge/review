@@ -5,7 +5,14 @@
   Indicate rejection of a file by logging an entry with 'approved' equal to 0.
 }
 \usage{
-log.fail(directory = getwd(), file = dir(), reviewer = Sys.info()["login"], approved = 0, force = FALSE, ...)
+log.fail(
+	directory = getwd(), 
+	file = dir(), 
+	reviewer = Sys.info()["login"], 
+	approved = 0, 
+	force = FALSE, 
+	...
+)
 }
 \arguments{
   \item{directory}{ the parent of file }

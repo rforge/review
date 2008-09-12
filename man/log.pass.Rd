@@ -5,7 +5,14 @@
   Indicate acceptance of a file by logging an entry with 'approved' equal to 1.
 }
 \usage{
-log.pass(directory = getwd(), file = dir(), reviewer = Sys.info()["login"], approved = 1, force = FALSE, ...)
+log.pass(
+	directory = getwd(), 
+	file = dir(), 
+	reviewer = Sys.info()["login"], 
+	approved = 1, 
+	force = FALSE, 
+	...
+)
 }
 \arguments{
   \item{directory}{ the parent of file }

@@ -5,7 +5,14 @@
   Create records indicating approval status of files.
 }
 \usage{
-log.grade(directory = getwd(), file = dir(), reviewer = Sys.info()["login"], approved, force = FALSE, ...)
+log.grade(
+	directory = getwd(), 
+	file = dir(), 
+	reviewer = Sys.info()["login"], 
+	approved, 
+	force = FALSE, 
+	...
+)
 }
 \arguments{
   \item{directory}{ the parent of file }
@@ -17,7 +24,7 @@ log.grade(directory = getwd(), file = dir(), reviewer = Sys.info()["login"], app
 }
 \details{
   Unlike log.pass() and log.fail(), 'approve' can be mixed (0,1) for files passed
-  to log.grade.  Can be undone with log.revert()
+  to log.grade.  Can be undone with log.revert().
 }
 \value{
 (invisible) number of records created.

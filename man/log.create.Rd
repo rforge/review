@@ -2,7 +2,7 @@
 \alias{log.create}
 \title{ Create a Review Log }
 \description{
-  Creates an empty table in the directory specified with name "QClog.csv"
+  Creates an empty table in the directory specified with name "QClog.csv".
 }
 \usage{
 log.create(directory = getwd())
