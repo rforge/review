@@ -7,7 +7,7 @@ function(directory=getwd()){
 			parent=character(0),
 			author=character(0),
 			reviewer=character(0),
-			revision=integer(0),
+			revision=integer(0)
 		),
 		file=log.name(directory)
 	)
