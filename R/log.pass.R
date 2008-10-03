@@ -1,4 +1,4 @@
-`log.pass` <-
+`log.accept` <-
 function(
 	directory=getwd(),
 	file=dir(),
