@@ -21,6 +21,7 @@ function(
 	names(author) <- NULL
 	directory <- abs.dir(directory)
 	file <- sub("^/+","",file)
+	parent <- sub("^/+","",parent)
 	parent <- coerce("parent")
 	author <- coerce("author")
 	reviewer <- coerce("reviewer")
@@ -28,7 +29,7 @@ function(
 	target <- log.target(directory,file,force)
 	data.frame(
 		file=rel.path(directory,file),
-		parent=parent,
+		parent=rel.path(directory,parent),
 		author=author,
 		reviewer=reviewer,
 		revision=revision
