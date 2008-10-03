@@ -22,9 +22,7 @@ log.append(directory = log.root(), new, ...)
 \author{ Tim Bergsma }
 \seealso{
 \code{\link{log.assign}},
-\code{\link{log.pass}},
-\code{\link{log.fail}},
-\code{\link{log.grade}}, 
+\code{\link{log.accept}},
 \code{\link{log.queue}}, 
 }
 \keyword{manip}

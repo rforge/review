@@ -2,12 +2,15 @@
 function(directory=getwd()){
 	log <- log.read(directory)
 	if(any(is.na(log$file)))stop("missing file names in log")
-	log <- log[order(log$file,log$revision,log$time),]
+	log <- log[order(log$file,log$revision),]
 	log <- log[rev(rownames(log)),]
 	log <- log[!duplicated(log$file),]
 	log <- log[rev(rownames(log)),]
+	if(!nrow(log))return(cbind(log,data.frame(fCommit=character(0),pCommit=character(0))))
 	target <- log.target(log.root(directory),log$file,force=TRUE)
-	log$commit <- sapply(target,revision)
+	log$fCommit <- sapply(target,revision)
+	target <- log.target(log.root(directory),log$parent,force=TRUE)
+	log$pCommit <- sapply(target,revision)
 	log
 }
 

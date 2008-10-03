@@ -13,11 +13,11 @@ log.create(directory = getwd())
 \details{
   Column names are file, revision, author, reviewer, task, time, and approved.  
   Entries for 'file' will be relative to the specified directory, and will not 
-  begin with "/".  Entries for 'revision' should reflect the reviewed revision of the
-  file.  Entries for 'author' should be the svn author of the reviewed revision.
-  Entries for 'reviewer' should be the R login of the reviewer.  Entries for 'task'
-  can be arbitrary, 'review' by default. Entries for 'time' should be character
-  in the format YYYY-MM-DD HH:MM:SS.  Entries for 'approved' should be 1 (yes) or 0 (no).
+  begin with "/".  Entries for 'parent' should be identical to 'file' or the name
+  of some other file responsible for this content.  Entries for 'author' should
+  be the svn author of the reviewed revision.  Entries for 'reviewer' should be 
+  the R login of the reviewer.  Entries for 'revision' should reflect the 
+  reviewed revision of the file.
 }
 \value{
 used for side effects.
@@ -27,8 +27,7 @@ used for side effects.
 \seealso{
 \code{\link{log.name}},
 \code{\link{log.assign}},
-\code{\link{log.pass}},
-\code{\link{log.fail}}, 
+\code{\link{log.accept}},
 }
 \keyword{manip}
 

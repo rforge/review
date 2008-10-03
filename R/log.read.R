@@ -1,5 +1,6 @@
 `log.read` <-
 function(directory=getwd()){
+	if(is.null(directory))stop("directory is null: log may not exist")
 	if(!file_test("-d",directory))stop(paste("nonexistent directory:",directory))
 	root <- log.root(directory)
 	if(is.null(root))stop(paste(abs.dir(directory),"does not have a log root"))

@@ -2,20 +2,22 @@
 function(
 	directory=getwd(),
 	file=dir(),
+	parent=file,
 	reviewer=Sys.info()['login'],
-	approved=1,force=FALSE,
+	force=FALSE,
 	...
 ){
 	target <- log.target(directory,file,force)
 	revision <- sapply(target,revision)
+	if(is.null(parent)
 	log.append(
 		directory,
 		log.queue(
 			directory,
 			file,
+			parent,
 			revision=revision,
 			reviewer=reviewer,
-			approved=1,
 			force=force,
 			...
 		)

@@ -1,6 +1,6 @@
 `log.pending` <-
 function(directory=getwd()){
 	log <- log.summary(directory)
-	log[with(log,commit > revision | approved == 0),]
+	log[with(log,fCommit > revision | pCommit > revision | revision == 0),]
 }
 

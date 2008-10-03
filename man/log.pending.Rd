@@ -2,9 +2,8 @@
 \alias{log.pending}
 \title{ List Log Entries that Require (Further) Review }
 \description{
-  Checks the log summary and returns entries for files whose most recent action
-  is disapproval, as well as approved files that have been surpassed by more recent
-  versions.
+  Checks the log summary and returns entries for files whose revision numbers 
+  are zero, or smaller than either the latest commit of the file or its parent.
 }
 \usage{
 log.pending(directory = getwd())
@@ -24,7 +23,7 @@ data.frame
 \code{\link{log.summary}},
 \code{\link{log.assignments}},
 \code{\link{log.assign}},
-\code{\link{log.pass}}, 
+\code{\link{log.accept}}, 
 }
 \keyword{manip}
 

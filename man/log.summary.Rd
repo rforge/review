@@ -15,14 +15,15 @@ log.summary(directory = getwd())
   summary reduces the data to one record per file.  It is an error if any element
   of the file column is missing.  
   
-  The log is read, then sorted on file, revision, and time, in ascending order.  
+  The log is read, then sorted on file and revision in ascending order.  
   The last record for each unique file is retained.
   
   The function log.summary() uses the svn interface to retrieve the current 
-  revision number of each file, appending the information as the column 'commit'.
+  revision number of each file, appending the information as the column 'fCommit'.
+  The corresponding datum for the parent file is retrieved as 'pCommit'.
   
   Be sure to update your checkout for the most current summary.  In particular,
-  this ensures that the latest values of 'commit' are represented.
+  this ensures that the latest commit values are represented.
 }
 \value{
 data.frame

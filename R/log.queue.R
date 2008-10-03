@@ -1,13 +1,11 @@
 `log.queue` <-
 function(
 	directory=getwd(),
-	file=dir(), 
-	revision=0,
+	file=dir(),
+	parent=file,
 	author=NULL,
 	reviewer="anyone",
-	task="review",
-	time=Sys.time(),
-	approved=0,
+	revision=0,
 	force=FALSE
 ){
 	coerce <- function(arg){
@@ -23,21 +21,17 @@ function(
 	names(author) <- NULL
 	directory <- abs.dir(directory)
 	file <- sub("^/+","",file)
-	revision <- coerce("revision")
+	parent <- coerce("parent")
 	author <- coerce("author")
 	reviewer <- coerce("reviewer")
-	task <- coerce("task")
-	time <- coerce("time")
-	approved <- coerce("approved")
+	revision <- coerce("revision")
 	target <- log.target(directory,file,force)
 	data.frame(
 		file=rel.path(directory,file),
-		revision=revision,
+		parent=parent,
 		author=author,
 		reviewer=reviewer,
-		task=task,
-		time=as.character(time),
-		approved=approved
+		revision=revision
 	)
 }
 

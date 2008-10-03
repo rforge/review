@@ -2,23 +2,23 @@
 \alias{log.pass}
 \title{ Approve a File }
 \description{
-  Indicate acceptance of a file by logging an entry with 'approved' equal to 1.
+  Indicate acceptance of a file by logging an entry with nonzero version.
 }
 \usage{
 log.pass(
 	directory = getwd(), 
 	file = dir(), 
-	reviewer = Sys.info()["login"], 
-	approved = 1, 
+	parent = file,
+	reviewer = Sys.info()["login"],  
 	force = FALSE, 
 	...
 )
 }
 \arguments{
   \item{directory}{ the parent of file }
-  \item{file}{ one or more files to reject }
+  \item{file}{ one or more files to accept }
+  \item{parent}{ the file that created this file, or self }
   \item{reviewer}{ the user issuing the opinion, normally oneself }
-  \item{approved}{ coerced to 1, regardless of the value supplied }
   \item{force}{ if false (default) nonexistent files cause an error }
   \item{\dots}{ arguments passed to log.queue }
 }
@@ -32,7 +32,6 @@ log.pass(
 \author{ Tim Bergsma }
 \seealso{
 \code{\link{log.assign}},
-\code{\link{log.fail}},
 \code{\link{log.queue}},
 \code{\link{log.root}}, 
 }
