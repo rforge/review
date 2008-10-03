@@ -1,8 +1,8 @@
 Package: review
 Type: Package
 Title: Manage Review Logs
-Version: 1.1
-Date: 2008-09-11
+Version: 1.2
+Date: 2008-10-03
 Author: Tim Bergsma
 Maintainer: Tim Bergsma <timb@metrumrg.com>
 Depends: XML

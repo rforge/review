@@ -1,11 +1,11 @@
-\name{log.pass}
-\alias{log.pass}
+\name{log.accept}
+\alias{log.accept}
 \title{ Approve a File }
 \description{
   Indicate acceptance of a file by logging an entry with nonzero version.
 }
 \usage{
-log.pass(
+log.accept(
 	directory = getwd(), 
 	file = dir(), 
 	parent = file,

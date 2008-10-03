@@ -12,8 +12,8 @@ Functions for managing logs of reviews of subversioned files.
 \tabular{ll}{
 Package: \tab review\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2008-09-11\cr
+Version: \tab 1.2\cr
+Date: \tab 2008-10-03\cr
 License: \tab GPL2\cr
 LazyLoad: \tab yes\cr
 }
@@ -43,7 +43,7 @@ customize as necessary.}
 \item{}{Naviate to the directory containing the log, or below.} 
 \item{}{View your assignments with \code{log.assignments()} or \code{log.assignments(reviewer = 'anyone')}.}
 \item{}{Capture the name of a particular file, e.g. \code{f <- log.assignments()[[1]]}.} 
-\item{}{To approve the file, say \code{log.pass(file=f)}.}
+\item{}{To approve the file, say \code{log.accept(file=f)}.}
 \item{}{Check in your changes using svn tools.}
 }
 \bold{Summarizing}

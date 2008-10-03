@@ -31,8 +31,7 @@ log.revert(directory = log.root())
 \seealso{
 \code{\link{log.append}},
 \code{\link{log.assign}},
-\code{\link{log.pass}},
-\code{\link{log.fail}}, 
+\code{\link{log.accept}}, 
 }
 \keyword{manip}
 
