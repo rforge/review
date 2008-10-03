@@ -9,7 +9,6 @@ function(
 ){
 	target <- log.target(directory,file,force)
 	revision <- sapply(target,revision)
-	if(is.null(parent)
 	log.append(
 		directory,
 		log.queue(

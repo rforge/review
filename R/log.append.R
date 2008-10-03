@@ -2,12 +2,11 @@
 function(directory=log.root(),new,...){
 	old <- log.read(directory)
 	file <- log.name(directory)
-	key <- unique(old[,c("file","parent"))
+	key <- unique(old[,c("file","parent")])
 	if(any(duplicated(key$file)))stop(
 		paste(
-			"log contains conficting parents for file(s) e.g."
+			"log contains conficting parents for file(s) e.g.",
 			key$file[duplicated(key$file)][[1]]
-			)
 		)
 	)
 	row.names(key) <- key$file
