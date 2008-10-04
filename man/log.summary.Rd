@@ -20,7 +20,7 @@ log.summary(directory = getwd())
   
   The function log.summary() uses the svn interface to retrieve the current 
   revision number of each file, appending the information as the column 'fCommit'.
-  The corresponding datum for the parent file is retrieved as 'pCommit'.
+  The corresponding datum for the originating file is retrieved as 'oCommit'.
   
   Be sure to update your checkout for the most current summary.  In particular,
   this ensures that the latest commit values are represented.

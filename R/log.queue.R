@@ -2,7 +2,7 @@
 function(
 	directory=getwd(),
 	file=dir(),
-	parent=file,
+	origin=file,
 	author=NULL,
 	reviewer="anyone",
 	revision=0,
@@ -21,18 +21,19 @@ function(
 	names(author) <- NULL
 	directory <- abs.dir(directory)
 	file <- sub("^/+","",file)
-	parent <- sub("^/+","",parent)
-	parent <- coerce("parent")
+	origin <- sub("^/+","",origin)
+	origin <- coerce("origin")
 	author <- coerce("author")
 	reviewer <- coerce("reviewer")
 	revision <- coerce("revision")
 	target <- log.target(directory,file,force)
 	data.frame(
 		file=rel.path(directory,file),
-		parent=rel.path(directory,parent),
+		origin=rel.path(directory,origin),
 		author=author,
 		reviewer=reviewer,
-		revision=revision
+		revision=revision,
+		stringsAsFactors=FALSE
 	)
 }
 

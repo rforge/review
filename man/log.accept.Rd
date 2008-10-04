@@ -8,7 +8,6 @@
 log.accept(
 	directory = getwd(), 
 	file = dir(), 
-	parent = file,
 	reviewer = Sys.info()["login"],  
 	force = FALSE, 
 	...
@@ -17,13 +16,13 @@ log.accept(
 \arguments{
   \item{directory}{ the parent of file }
   \item{file}{ one or more files to accept }
-  \item{parent}{ the file that created this file, or self }
   \item{reviewer}{ the user issuing the opinion, normally oneself }
   \item{force}{ if false (default) nonexistent files cause an error }
   \item{\dots}{ arguments passed to log.queue }
 }
 \details{
-  Can be undone with log.revert().
+  Can be undone with log.revert().  log.accept() calls log.append(), which silently
+  ignores acceptance records that are exact duplicates of existing records.
 }
 \value{
 (invisible) number of records created.

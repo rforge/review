@@ -1,9 +1,10 @@
 \name{log.pending}
 \alias{log.pending}
-\title{ List Log Entries that Require (Further) Review }
+\title{ List Log Entries that Require Review }
 \description{
   Checks the log summary and returns entries for files whose revision numbers 
-  are zero, or smaller than either the latest commit of the file or its parent.
+  are zero, or smaller than either the latest commit of the file or the latest
+  commit of its origin.
 }
 \usage{
 log.pending(directory = getwd())

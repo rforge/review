@@ -13,7 +13,7 @@ log.create(directory = getwd())
 \details{
   Column names are file, revision, author, reviewer, task, time, and approved.  
   Entries for 'file' will be relative to the specified directory, and will not 
-  begin with "/".  Entries for 'parent' should be identical to 'file' or the name
+  begin with "/".  Entries for 'origin' should be identical to 'file' or the name
   of some other file responsible for this content.  Entries for 'author' should
   be the svn author of the reviewed revision.  Entries for 'reviewer' should be 
   the R login of the reviewer.  Entries for 'revision' should reflect the 

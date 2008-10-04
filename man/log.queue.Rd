@@ -8,7 +8,7 @@
 log.queue(
 	directory = getwd(), 
 	file = dir(), 
-	parent = file, 
+	origin = file, 
 	author = NULL, 
 	reviewer = "anyone", 
 	revision = 0,
@@ -18,7 +18,7 @@ log.queue(
 \arguments{
   \item{directory}{ the parent of file }
   \item{file}{ one or more files for which to create records}
-  \item{parent}{ parent file(s) corresponding to 'file'}
+  \item{origin}{ file(s) from which 'file' originates}
   \item{author}{ the svn author of the file being reviewed }
   \item{reviewer}{  the user issuing the opinion, normally oneself }
   \item{revision}{ the svn revision of the file being reviewed }

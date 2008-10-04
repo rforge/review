@@ -2,7 +2,6 @@
 function(
 	directory=getwd(),
 	file=dir(),
-	parent=file,
 	reviewer=Sys.info()['login'],
 	force=FALSE,
 	...
@@ -14,7 +13,6 @@ function(
 		log.queue(
 			directory,
 			file,
-			parent,
 			revision=revision,
 			reviewer=reviewer,
 			force=force,

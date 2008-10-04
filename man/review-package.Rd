@@ -31,7 +31,7 @@ usage is described here.
 \item{}{In R, navigate to the check-out directory with \code{setwd()}.}
 \item{}{Try \code{dir(recursive=TRUE)} to get a list of possible assignments.  
 customize as necessary.}
-\item{}{To assign all files to "anyone", type \code{log.assign(file=dir(recursive=TRUE)).If the files have 'parents', specify.}.}
+\item{}{To assign all files to "anyone", type \code{log.assign(file=dir(recursive=TRUE)).If the files have 'origins', specify.}.}
 \item{}{To assign just the files in a directory, navigate there and type \code{log.assign()}.}
 \item{}{To review the result, type \code{log.read()}.}
 \item{}{To undo the result, type \code{log.revert()}.}
