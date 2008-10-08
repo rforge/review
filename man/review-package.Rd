@@ -13,7 +13,7 @@ Functions for managing logs of reviews of subversioned files.
 Package: \tab review\cr
 Type: \tab Package\cr
 Version: \tab 1.2\cr
-Date: \tab 2008-10-03\cr
+Date: \tab 2008-10-08\cr
 License: \tab GPL2\cr
 LazyLoad: \tab yes\cr
 }
@@ -72,6 +72,8 @@ Maintainer: Tim Bergsma <timb@metrumrg.com>
 	\item{}{\code{\link{repo.info}}}
 	\item{}{\code{\link{revision}}}
 	\item{}{\code{\link{author}}}
+	\item{}{\code{\link{svnDate}}}
+	\item{}{\code{\link{gmt}}}
 	\item{}{\code{\link{log.read}}}
 	\item{}{\code{\link{log.write}}}
 	\item{}{\code{\link{rel.path}}}

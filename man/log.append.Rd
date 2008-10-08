@@ -14,9 +14,7 @@ log.append(directory = log.root(), new, ...)
 }
 \details{
   Generally this function is not called by the user.  Check "see also" for preferred interface.
-  A warning is issued if the log has duplicates of revision.  It is an error if
-  the log contains duplicates of origin, or if an attempt is made to reassign
-  a file.  Duplicate acceptance records are silently ignored.
+  new$origin may contain NA, if (per file) precedents exist in log.
 }
 \value{
 (invisible) the number of rows added

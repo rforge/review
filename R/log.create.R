@@ -4,10 +4,10 @@ function(directory=getwd()){
 	log.write(
 		data.frame(
 			file=character(0),
+			revision=integer(0),
 			origin=character(0),
-			author=character(0),
 			reviewer=character(0),
-			revision=integer(0)
+			time=character(0)
 		),
 		file=log.name(directory)
 	)

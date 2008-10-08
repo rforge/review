@@ -2,6 +2,7 @@
 function(
 	directory=getwd(),
 	file=dir(),
+	origin=NA,
 	reviewer=Sys.info()['login'],
 	force=FALSE,
 	...
@@ -11,8 +12,9 @@ function(
 	log.append(
 		directory,
 		log.queue(
-			directory,
-			file,
+			directory=directory,
+			file=file,
+			origin=origin,
 			revision=revision,
 			reviewer=reviewer,
 			force=force,

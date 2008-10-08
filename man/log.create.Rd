@@ -11,13 +11,27 @@ log.create(directory = getwd())
   \item{directory}{directory in which to create the log file}
 }
 \details{
-  Column names are file, revision, author, reviewer, task, time, and approved.  
-  Entries for 'file' will be relative to the specified directory, and will not 
-  begin with "/".  Entries for 'origin' should be identical to 'file' or the name
-  of some other file responsible for this content.  Entries for 'author' should
-  be the svn author of the reviewed revision.  Entries for 'reviewer' should be 
-  the R login of the reviewer.  Entries for 'revision' should reflect the 
-  reviewed revision of the file.
+  Columns are as follows.  
+  \list{
+  	\item{file}{
+		The path and name of the accepted file, relative to the specified 
+		directory, and not beginning with "/".  
+	}
+	\item{revision}{
+		The reviewed revision of the file.
+	}
+	\item{origin}{
+		Identical to 'file' or the name of some other file responsible 
+		for this content.
+	}
+	\item{reviewer}{
+		The R login of the reviewer of 'file'.
+	}
+	\item{time}{
+		Date and time (GMT) of of acceptance of \em{'file'}.
+	}
+
+  }
 }
 \value{
 used for side effects.

@@ -12,7 +12,7 @@ log.assign(directory = getwd(), file = dir(), origin = file, ...)
 \arguments{
   \item{directory}{ the parent of 'file' }
   \item{file}{ a character vector of filenames (paths) relative to directory }
-  \item{origin}{ a character vector filenames (paths) relative to directory, from which 'file' originates }
+  \item{origin}{ a character vector of filenames (paths) relative to directory, from which 'file' originates }
   \item{\dots}{ arguments passed to log.queue() }
 }
 \details{
@@ -22,8 +22,8 @@ log.assign(directory = getwd(), file = dir(), origin = file, ...)
   should be reviewed. "Origin" files may also be specified, indicating that a 
   file originates from (e.g. is created by) some other file.  The function 
   log.pending() identifies files with a later-versioned origin.  A file's origin
-  is itself, by default. Currently, log.assign() calls log.append, which will
-  not allow reassignments (new records for the same file with revision==0).
+  is itself, by default. Currently, log.assign() calls log.append(), which allows
+  NA for origin where precedents exist.
 }
 \value{
 (invisible) the number of records created..
