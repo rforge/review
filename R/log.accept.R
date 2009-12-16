@@ -9,15 +9,15 @@ function(
 	target <- log.target(file=file,directory=directory,force=force)
 	revision <- sapply(target,revision)
 	log.append(
-		directory,
-		log.queue(
+		new=log.queue(
 			file=file,
 			directory=directory,
 			revision=revision,
 			reviewer=reviewer,
 			force=force,
 			...
-		)
-	)
+		),
+	)	directory=directory
+		
 }
 
