@@ -1,20 +1,18 @@
 `log.accept` <-
 function(
-	directory=getwd(),
 	file=dir(),
-	origin=NA,
+	directory=getwd(),
 	reviewer=Sys.info()['login'],
 	force=FALSE,
 	...
 ){
-	target <- log.target(directory,file,force)
+	target <- log.target(file=file,directory=directory,force=force)
 	revision <- sapply(target,revision)
 	log.append(
 		directory,
 		log.queue(
-			directory=directory,
 			file=file,
-			origin=origin,
+			directory=directory,
 			revision=revision,
 			reviewer=reviewer,
 			force=force,

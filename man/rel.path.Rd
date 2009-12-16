@@ -6,11 +6,11 @@
   the directory containing the review log.
 }
 \usage{
-rel.path(directory = getwd(), file = dir())
+rel.path(file = dir(), directory = getwd())
 }
 \arguments{
-  \item{directory}{ the parent of file }
   \item{file}{ one or more files for which to create paths}
+  \item{directory}{ the parent of file }
 }
 \details{
   The elements of 'file' must be encoded relative to 'directory'.

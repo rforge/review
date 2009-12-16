@@ -7,7 +7,7 @@ function(directory=getwd()){
 	log <- log[!duplicated(log$file),]
 	log <- log[rev(rownames(log)),]
 	if(!nrow(log))return(cbind(log,data.frame(changed=character(0))))
-	target <- log.target(log.root(directory),log$origin,force=TRUE)
+	target <- log.target(file=log$file,directory=log.root(directory),force=TRUE)
 	log$changed <- sapply(target,svnDate)
 	log
 }
