@@ -35,7 +35,7 @@ function(
 	time <- coerce("time")
 	target <- log.target(file=file,directory=directory,force=force)
 	data.frame(
-		file=rel.path(directory,file),
+		file=rel.path(file=file,directory=directory),
 		revision=revision,
 		reviewer=reviewer,
 		time=time,
