@@ -4,7 +4,7 @@ function(directory=getwd()){
 	start <- getwd()
 	setwd(directory)
 	root <- NULL
-	parent <- parent.dir(getwd())
+	parent <- parentDir(getwd())
 	if(file.exists(logName(getwd()))) root <- getwd()
 	else if(!is.null(parent)) root <- logRoot(parent)
 	setwd(start)

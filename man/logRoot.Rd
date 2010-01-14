@@ -21,7 +21,7 @@ character: the full path and name of the directory containing the review log.
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{parent.dir}},
+\code{\link{parentDir}},
 \code{\link{logName}},
 \code{\link{logCreate}},
 \code{\link{logAppend}}, 

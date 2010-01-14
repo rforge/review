@@ -1,11 +1,11 @@
-\name{repo.info}
-\alias{repo.info}
+\name{repoInfo}
+\alias{repoInfo}
 \title{ Retrieve Repository Information }
 \description{
   For a given file, retrieve svn repository information as XML.
 }
 \usage{
-repo.info(file = logRoot())
+repoInfo(file = logRoot())
 }
 \arguments{
   \item{file}{a file name }

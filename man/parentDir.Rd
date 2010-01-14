@@ -1,11 +1,11 @@
-\name{parent.dir}
-\alias{parent.dir}
+\name{parentDir}
+\alias{parentDir}
 \title{ Identify the Parent of a Directory }
 \description{
   Generate a fully qualified directory name for the parent of the specified directory.
 }
 \usage{
-parent.dir(directory = getwd())
+parentDir(directory = getwd())
 }
 \arguments{
   \item{directory}{ the directory whose parent is sought }
@@ -22,7 +22,7 @@ character
 \author{ Tim Bergsma }
 \seealso{
 \code{\link{absDir}},
-\code{\link{rel.path}},
+\code{\link{relPath}},
 \code{\link{logRoot}},
 }
 \keyword{manip}

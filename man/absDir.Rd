@@ -20,7 +20,7 @@ character
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{rel.path}},
+\code{\link{relPath}},
 }
 \keyword{manip}
 

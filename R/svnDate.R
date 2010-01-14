@@ -1,6 +1,6 @@
 `svnDate` <-
 function(file=logRoot()){
-	text <- repo.info(file)
+	text <- repoInfo(file)
 	x <- xmlTreeParse(text,asText=TRUE)
 	y <- x$doc$children$info[["entry"]][["commit"]][["date"]][[1]]
 	z <- NA

@@ -21,7 +21,7 @@ character
 \author{ Tim Bergsma }
 \seealso{ 
 \code{\link{revision}},
-\code{\link{repo.info}},
+\code{\link{repoInfo}},
 }
 \keyword{manip}
 

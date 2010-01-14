@@ -22,7 +22,7 @@ numeric
 \author{ Tim Bergsma }
 \seealso{
 \code{\link{author}},
-\code{\link{repo.info}},
+\code{\link{repoInfo}},
 }
 \keyword{manip}
 

@@ -71,18 +71,18 @@ Maintainer: Tim Bergsma <timb@metrumrg.com>
 \seealso{
 \itemize{
 	\item{}{\code{\link{absDir}}}
-	\item{}{\code{\link{parent.dir}}}
+	\item{}{\code{\link{parentDir}}}
 	\item{}{\code{\link{logName}}}
 	\item{}{\code{\link{logCreate}}}
 	\item{}{\code{\link{logRoot}}}
-	\item{}{\code{\link{repo.info}}}
+	\item{}{\code{\link{repoInfo}}}
 	\item{}{\code{\link{revision}}}
 	\item{}{\code{\link{author}}}
 	\item{}{\code{\link{svnDate}}}
 	\item{}{\code{\link{gmt}}}
 	\item{}{\code{\link{logRead}}}
 	\item{}{\code{\link{logWrite}}}
-	\item{}{\code{\link{rel.path}}}
+	\item{}{\code{\link{relPath}}}
 	\item{}{\code{\link{logTarget}}}
 	\item{}{\code{\link{logQueue}}}
 	\item{}{\code{\link{logAppend}}}
