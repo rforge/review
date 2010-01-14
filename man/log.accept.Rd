@@ -6,22 +6,25 @@
 }
 \usage{
 log.accept(
-	file = dir(), 
 	directory = getwd(), 
+	file = dir(), 
+	origin = NA,
 	reviewer = Sys.info()["login"],  
 	force = FALSE, 
 	...
 )
 }
 \arguments{
-  \item{file}{ one or more files to accept }
   \item{directory}{ the parent of file }
+  \item{file}{ one or more files to accept }
+  \item{origin}{  the file from which 'file' originates }
   \item{reviewer}{ the user issuing the opinion, normally oneself }
   \item{force}{ if false (default) nonexistent files cause an error }
   \item{\dots}{ arguments passed to log.queue }
 }
 \details{
-  Can be undone with log.revert(). Calls log.append().
+  Can be undone with log.revert(). Calls log.append(), which gives an error if
+  origin is NA (default) and no precedent exists.
 }
 \value{
 (invisible) number of records created.

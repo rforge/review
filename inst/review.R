@@ -91,7 +91,6 @@ log.assignments(reviewer=NULL)
 
 #Every file has an "origin": itself by default.  But since
 # our data file was created by our assembly script, that is its origin.
-#Origin no longer supported with version 2.0.
 setwd("..")
 log.assign(file="data/drug.csv",origin="script/assemble.R")
 log.accept(file="script/master.R")

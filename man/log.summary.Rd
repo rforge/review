@@ -19,7 +19,7 @@ log.summary(directory = getwd())
   for each file is retained.
   
   The function log.summary() uses the svn interface to retrieve the Last Changed
-  Date of each file, appending the information as the column 'changed'.
+  Date of each \em{origin}, appending the information as the column 'changed'.
   
   Be sure to update your checkout for the most current summary.  In particular,
   this ensures that the latest dates are represented.

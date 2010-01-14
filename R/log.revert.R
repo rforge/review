@@ -2,7 +2,7 @@
 function(directory=log.root()){
 	old <- log.read(directory)
 	file <- log.name(directory)
-	if(exists("log.history",where=1))history <- get("log.history",pos=1)
+	if(exists("log.history",where=1))	history <- get("log.history",pos=1)
 	else stop("no log history in this session")
 	if(!file %in% names(history))stop(paste("no history for",file,"in this session"))
 	recent <- length(history[[file]])

@@ -3,7 +3,7 @@
 \title{ List Log Entries that Require Review }
 \description{
   Checks the log summary and returns entries for files whose revision numbers 
-  are zero, or whose times are less then the Last Changed Time.
+  are zero, or whose times are less then the Last Changed Time of 'origin'.
 }
 \usage{
 log.pending(directory = getwd())

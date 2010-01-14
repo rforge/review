@@ -5,18 +5,18 @@
   Prepend the absolute file path to each file name, and test for existence.
 }
 \usage{
-log.target(file = dir(),directory = getwd(), force = FALSE)
+log.target(directory = getwd(), file = dir(), force = FALSE)
 }
 \arguments{
-  \item{file}{ one or more files for which to create targets}
   \item{directory}{ the parent of file }
+  \item{file}{ one or more files for which to create targets}
   \item{force}{if false (the default) nonexistent files cause an error  }
 }
 \details{
  This function is vectorized.
 }
 \value{
- character vector of file names
+character vector of file names
 }
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }

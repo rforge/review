@@ -8,8 +8,8 @@
 log.assignments(directory = getwd(), reviewer = Sys.info()[["login"]])
 }
 \arguments{
-  \item{directory}{ the directory containing the log, or any directory below it}
-  \item{reviewer}{a user name on which to filter results}
+  \item{directory}{ the directory containing the log, or any directory below it  }
+  \item{reviewer}{a user name on which to filter results }
 }
 \details{
   "Pending" has the meaning described for log.pending().  "Assigned" has the meaning

@@ -1,8 +1,8 @@
 `rel.path` <-
-function( file=dir(),directory=getwd()){
+function(directory=getwd(), file=dir()){
 	rel.dir <- sub("^/","",sub(log.root(),"",abs.dir(directory),fixed=TRUE))
-	rel.path <- file.path(rel.dir,file)
-	rel.path[!file.exists(file.path(directory,file))] <- NA
+	rel.path <- paste(rel.dir,file,sep="/")
+	rel.path[!file.exists(paste(directory,file,sep="/"))] <- NA
 	rel.path <- sub("^/","",rel.path)
 	rel.path
 }
