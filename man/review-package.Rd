@@ -12,8 +12,8 @@ Functions for managing logs of reviews of subversioned files.
 \tabular{ll}{
 Package: \tab review\cr
 Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2008-10-08\cr
+Version: \tab 1.5\cr
+Date: \tab 2008-11-24\cr
 License: \tab GPL2\cr
 LazyLoad: \tab yes\cr
 }
@@ -51,6 +51,12 @@ customize as necessary.}
 \item{}{Navigate to the directory containing the log, or below.}
 \item{}{Type \code{log.summary()}.}
 \item{}{If \code{log.pending()} is empty, all assigned reviews are complete.}
+}
+\bold{Shortcut}
+\enumerate{
+\item{}{Technically, it is not necessary that a file ever be assigned.  The first acceptance of an
+	existing file suffices (origin must be specified, however). The only two essential
+	functions are \code{log.create()} and \code{log.accept()}.}
 }
 }
 \author{

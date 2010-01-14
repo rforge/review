@@ -18,7 +18,8 @@ function(directory=log.root(),new,...){
 	)
 	#Combine old and new.
 	mix <- rbind(old,new)
-	file <- log.name(directory)
+	file <- log.name(log.root(directory))
+	if(!file.exists(file))stop(paste("can't find",file))
 	log.write(mix,file=file)
 	history <- list()
 	if(exists("log.history",where=1)) history <- get("log.history",pos=1)
