@@ -1,7 +1,7 @@
 `log.queue` <-
 function(
-	directory=getwd(),
 	file=dir(),
+	directory=getwd(),
 	revision=0,
 	origin=file,
 	reviewer="anyone",
@@ -37,9 +37,9 @@ function(
 	origin <- coerce("origin")
 	reviewer <- coerce("reviewer")
 	time <- coerce("time")
-	target <- log.target(directory,file,force)
+	target <- log.target(file=file,directory=directory,force=force)
 	data.frame(
-		file=rel.path(directory,file),
+		file=rel.path(file=file,directory=directory),
 		revision=revision,
 		origin=rel.path(directory,origin),
 		reviewer=reviewer,

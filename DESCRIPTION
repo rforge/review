@@ -1,12 +1,11 @@
 Package: review
 Type: Package
 Title: Manage Review Logs
-Version: 1.5
-Date: 2008-11-24
+Version: 2.1
+Date: 2009-12-16
 Author: Tim Bergsma
 Maintainer: Tim Bergsma <timb@metrumrg.com>
 Depends: XML
 Description: Functions for managing logs of reviews of subversioned files.
 License: GPL2.
 LazyLoad: yes
-Packaged: Mon Nov 24 13:04:19 2008; timb

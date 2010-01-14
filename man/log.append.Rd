@@ -5,11 +5,11 @@
   Add records to a review log.
 }
 \usage{
-log.append(directory = log.root(), new, ...)
+log.append(new,directory = log.root(),  ...)
 }
 \arguments{
-  \item{directory}{ the directory containing the log, or any directory below it }
   \item{new}{ a data.frame of new records to append, as created with log.queue(). }
+  \item{directory}{ the directory containing the log, or any directory below it }
   \item{\dots}{ arguments passed to log.queue(). }
 }
 \details{

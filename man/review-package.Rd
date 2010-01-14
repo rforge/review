@@ -12,8 +12,8 @@ Functions for managing logs of reviews of subversioned files.
 \tabular{ll}{
 Package: \tab review\cr
 Type: \tab Package\cr
-Version: \tab 1.5\cr
-Date: \tab 2008-11-24\cr
+Version: \tab 2.1\cr
+Date: \tab 2010-01-14\cr
 License: \tab GPL2\cr
 LazyLoad: \tab yes\cr
 }
@@ -31,7 +31,7 @@ usage is described here.
 \item{}{In R, navigate to the check-out directory with \code{setwd()}.}
 \item{}{Try \code{dir(recursive=TRUE)} to get a list of possible assignments.  
 customize as necessary.}
-\item{}{To assign all files to "anyone", type \code{log.assign(file=dir(recursive=TRUE)).If the files have 'origins', specify.}.}
+\item{}{To assign all files to "anyone", type \code{log.assign(dir(recursive=TRUE))}.}
 \item{}{To assign just the files in a directory, navigate there and type \code{log.assign()}.}
 \item{}{To review the result, type \code{log.read()}.}
 \item{}{To undo the result, type \code{log.revert()}.}
@@ -43,7 +43,7 @@ customize as necessary.}
 \item{}{Naviate to the directory containing the log, or below.} 
 \item{}{View your assignments with \code{log.assignments()} or \code{log.assignments(reviewer = 'anyone')}.}
 \item{}{Capture the name of a particular file, e.g. \code{f <- log.assignments()[[1]]}.} 
-\item{}{To approve the file, say \code{log.accept(file=f)}.}
+\item{}{To approve the file, say \code{log.accept(f)}.}
 \item{}{Check in your changes using svn tools.}
 }
 \bold{Summarizing}

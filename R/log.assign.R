@@ -1,6 +1,6 @@
 `log.assign` <-
-function(directory=getwd(),file=dir(),origin=file,...)log.append(
-	log.root(directory),
-	log.queue(directory=directory,file=file,origin=origin,...)
+function(file=dir(),directory=getwd(),origin=file,...)log.append(
+	new=log.queue(file=file,directory=directory,origin=origin,...),
+	directory=log.root(directory)
 )
 

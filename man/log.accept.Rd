@@ -6,8 +6,8 @@
 }
 \usage{
 log.accept(
-	directory = getwd(), 
 	file = dir(), 
+	directory = getwd(),
 	origin = NA,
 	reviewer = Sys.info()["login"],  
 	force = FALSE, 
@@ -15,8 +15,8 @@ log.accept(
 )
 }
 \arguments{
-  \item{directory}{ the parent of file }
   \item{file}{ one or more files to accept }
+  \item{directory}{ the parent of file }
   \item{origin}{  the file from which 'file' originates }
   \item{reviewer}{ the user issuing the opinion, normally oneself }
   \item{force}{ if false (default) nonexistent files cause an error }
