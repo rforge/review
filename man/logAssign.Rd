@@ -21,9 +21,9 @@ logAssign(file = dir(), directory = getwd(), origin = file, ...)
   for certain files.  Default reviewer "anyone" simply declares that an entity
   should be reviewed. "Origin" files may also be specified, indicating that a 
   file originates from (e.g. is created by) some other file.  The function 
-  logPending() identifies files with a later-versioned origin.  A file's origin
+  logPending() identifies files needing (further) review.  A file's origin
   is itself, by default. Currently, logAssign() calls logAppend(), which allows
-  NA for origin where precedents exist.
+  NA for origin (defaults to precedent or to file itself).
 }
 \value{
 (invisible) the number of records created.

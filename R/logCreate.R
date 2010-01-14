@@ -4,8 +4,8 @@ function(directory=getwd()){
 	logWrite(
 		data.frame(
 			file=character(0),
-			revision=integer(0),
 			origin=character(0),
+			revision=integer(0),
 			reviewer=character(0),
 			time=character(0)
 		),

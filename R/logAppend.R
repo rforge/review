@@ -12,7 +12,7 @@ function(new,directory=logRoot(),...){
 	new$precedent <- NULL
 	new$origin[is.na(new$origin)] <- new$file[is.na(new$origin)]
 	#Combine old and new.
-	mix <- rbind(old,new)
+	mix <- rbind(old[names(new)],new)
 	file <- logName(logRoot(directory))
 	if(!file.exists(file))stop(paste("can't find",file))
 	logWrite(mix,file=file)

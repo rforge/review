@@ -16,7 +16,7 @@ function(
 	}
 	confirm <- function(directory,file){
 		file <- file[!is.na(file)]
-		nonesuch <- file[!file.exists(paste(directory,file,sep="/"))]
+		nonesuch <- file[!file.exists(file.path(directory,file))]
 		if(length(nonesuch))warning(
 			paste(
 				length(nonesuch),
@@ -40,8 +40,8 @@ function(
 	target <- logTarget(file=file,directory=directory,force=force)
 	data.frame(
 		file=relPath(file=file,directory=directory),
+		origin=relPath(file=origin,directory=directory),
 		revision=revision,
-		origin=relPath(directory,origin),
 		reviewer=reviewer,
 		time=time,
 		stringsAsFactors=FALSE

@@ -1,9 +1,9 @@
 `relPath` <-
 function( file=dir(),directory=getwd()){
-	rel.dir <- sub("^/","",sub(logRoot(),"",absDir(directory),fixed=TRUE))
-	relPath <- file.path(rel.dir,file)
+	relDir <- sub("^/","",sub(logRoot(),"",absDir(directory),fixed=TRUE))
+	relPath <- file.path(relDir,file)
 	relPath[!file.exists(file.path(directory,file))] <- NA
-	relPath <- sub("^/","",relPath)
+	#relPath <- sub("^/","",relPath)
 	relPath
 }
 
