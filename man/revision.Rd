@@ -5,7 +5,7 @@
   Gives the revision of a file that is under subversion control.
 }
 \usage{
-revision(file = log.root())
+revision(file = logRoot())
 }
 \arguments{
   \item{file}{ a (path to a) subversioned file}

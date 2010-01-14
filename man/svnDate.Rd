@@ -6,7 +6,7 @@
   the timezone (UTC).
 }
 \usage{
-svnDate(file = log.root())
+svnDate(file = logRoot())
 }
 \arguments{
   \item{file}{ a (path to a) subversioned file}

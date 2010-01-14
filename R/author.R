@@ -1,5 +1,5 @@
 `author` <-
-function(file=log.root()){
+function(file=logRoot()){
 	text <- repo.info(file)
 	x <- xmlTreeParse(text,asText=TRUE)
 	y <- x$doc$children$info[["entry"]][["commit"]][["author"]][[1]]

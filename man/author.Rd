@@ -5,7 +5,7 @@
   Gives the author of a file that is under subversion control.
 }
 \usage{
-author(file = log.root())
+author(file = logRoot())
 }
 \arguments{
   \item{file}{ a (path to a) subversioned file}

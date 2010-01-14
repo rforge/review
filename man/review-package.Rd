@@ -23,7 +23,7 @@ usage is described here.
 \bold{Making a Log}
 \enumerate{
 \item{}{In R, navigate to the check-out directory with \code{setwd()}.}
-\item{}{Type \code{log.create()}.}
+\item{}{Type \code{logCreate()}.}
 \item{}{Be sure to add your log file and check it in with svn tools.}
 }
 \bold{Making Assignments}
@@ -31,32 +31,32 @@ usage is described here.
 \item{}{In R, navigate to the check-out directory with \code{setwd()}.}
 \item{}{Try \code{dir(recursive=TRUE)} to get a list of possible assignments.  
 customize as necessary.}
-\item{}{To assign all files to "anyone", type \code{log.assign(dir(recursive=TRUE))}.}
-\item{}{To assign just the files in a directory, navigate there and type \code{log.assign()}.}
-\item{}{To review the result, type \code{log.read()}.}
-\item{}{To undo the result, type \code{log.revert()}.}
+\item{}{To assign all files to "anyone", type \code{logAssign(dir(recursive=TRUE))}.}
+\item{}{To assign just the files in a directory, navigate there and type \code{logAssign()}.}
+\item{}{To review the result, type \code{logRead()}.}
+\item{}{To undo the result, type \code{logRevert()}.}
 \item{}{Check in your changes using svn tools.}
 }
 \bold{Reviewing Files}
 \enumerate{
 \item{}{Update your checkout with svn tools.}
 \item{}{Naviate to the directory containing the log, or below.} 
-\item{}{View your assignments with \code{log.assignments()} or \code{log.assignments(reviewer = 'anyone')}.}
-\item{}{Capture the name of a particular file, e.g. \code{f <- log.assignments()[[1]]}.} 
-\item{}{To approve the file, say \code{log.accept(f)}.}
+\item{}{View your assignments with \code{logAssignments()} or \code{logAssignments(reviewer = 'anyone')}.}
+\item{}{Capture the name of a particular file, e.g. \code{f <- logAssignments()[[1]]}.} 
+\item{}{To approve the file, say \code{logAccept(f)}.}
 \item{}{Check in your changes using svn tools.}
 }
 \bold{Summarizing}
 \enumerate{
 \item{}{Navigate to the directory containing the log, or below.}
-\item{}{Type \code{log.summary()}.}
-\item{}{If \code{log.pending()} is empty, all assigned reviews are complete.}
+\item{}{Type \code{logSummary()}.}
+\item{}{If \code{logPending()} is empty, all assigned reviews are complete.}
 }
 \bold{Shortcut}
 \enumerate{
 \item{}{Technically, it is not necessary that a file ever be assigned.  The first acceptance of an
 	existing file suffices (origin must be specified, however). The only two essential
-	functions are \code{log.create()} and \code{log.accept()}.}
+	functions are \code{logCreate()} and \code{logAccept()}.}
 }
 }
 \author{
@@ -70,28 +70,28 @@ Maintainer: Tim Bergsma <timb@metrumrg.com>
 \keyword{ package }
 \seealso{
 \itemize{
-	\item{}{\code{\link{abs.dir}}}
+	\item{}{\code{\link{absDir}}}
 	\item{}{\code{\link{parent.dir}}}
-	\item{}{\code{\link{log.name}}}
-	\item{}{\code{\link{log.create}}}
-	\item{}{\code{\link{log.root}}}
+	\item{}{\code{\link{logName}}}
+	\item{}{\code{\link{logCreate}}}
+	\item{}{\code{\link{logRoot}}}
 	\item{}{\code{\link{repo.info}}}
 	\item{}{\code{\link{revision}}}
 	\item{}{\code{\link{author}}}
 	\item{}{\code{\link{svnDate}}}
 	\item{}{\code{\link{gmt}}}
-	\item{}{\code{\link{log.read}}}
-	\item{}{\code{\link{log.write}}}
+	\item{}{\code{\link{logRead}}}
+	\item{}{\code{\link{logWrite}}}
 	\item{}{\code{\link{rel.path}}}
-	\item{}{\code{\link{log.target}}}
-	\item{}{\code{\link{log.queue}}}
-	\item{}{\code{\link{log.append}}}
-	\item{}{\code{\link{log.revert}}}
-	\item{}{\code{\link{log.assign}}}
-	\item{}{\code{\link{log.accept}}}
-	\item{}{\code{\link{log.summary}}}
-	\item{}{\code{\link{log.pending}}}
-	\item{}{\code{\link{log.assignments}}}
+	\item{}{\code{\link{logTarget}}}
+	\item{}{\code{\link{logQueue}}}
+	\item{}{\code{\link{logAppend}}}
+	\item{}{\code{\link{logRevert}}}
+	\item{}{\code{\link{logAssign}}}
+	\item{}{\code{\link{logAccept}}}
+	\item{}{\code{\link{logSummary}}}
+	\item{}{\code{\link{logPending}}}
+	\item{}{\code{\link{logAssignments}}}
 }
 }
 \keyword{manip}

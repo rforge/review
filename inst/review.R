@@ -43,11 +43,11 @@ library(review)
 #Let's create a review log.  This must happen first, and 
 # if you're not in the top level directory, you should pass
 # its path as an argument.
-log.create()
+logCreate()
 
 #Where is this log rooted, and what is its name?
-log.root()#"/Users/timb/project/drug"
-log.name()#"/Users/timb/project/drug/QClog.csv"
+logRoot()#"/Users/timb/project/drug"
+logName()#"/Users/timb/project/drug/QClog.csv"
 
 #We check in the log....
 system("svn add QClog.csv")
@@ -68,8 +68,8 @@ dir(recursive=TRUE)
 # just those files, by default.
 setwd("script")
 dir()
-log.assign()
-log.read()
+logAssign()
+logRead()
 #               file revision            origin reviewer                    time
 #1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:18:44 GMT
 #2   script/master.R        0   script/master.R   anyone 2008-10-08 21:18:44 GMT
@@ -77,24 +77,24 @@ log.read()
 #If we revert the assignments, then read from disk, we see our 
 # action was undone.  Note that review::revert is very different from
 # svn::revert.
-log.revert()
-log.read()
+logRevert()
+logRead()
 # [1] file     revision origin   reviewer time    
 # <0 rows> (or 0-length row.names)
 
 #Now we assign a file; essentially we are claiming that the reviewer (default:anyone)
 # accepts revision zero.
-log.assign()
-log.assignments()#character(0)
-log.assignments(reviewer=NULL)
+logAssign()
+logAssignments()#character(0)
+logAssignments(reviewer=NULL)
 #[1] "script/assemble.R" "script/master.R"  
 
 #Every file has an "origin": itself by default.  But since
 # our data file was created by our assembly script, that is its origin.
 setwd("..")
-log.assign(file="data/drug.csv",origin="script/assemble.R")
-log.accept(file="script/master.R")
-log.read()
+logAssign(file="data/drug.csv",origin="script/assemble.R")
+logAccept(file="script/master.R")
+logRead()
 #                file revision            origin reviewer                    time
 # 1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:20:10 GMT
 # 2   script/master.R        0   script/master.R   anyone 2008-10-08 21:20:10 GMT
@@ -102,9 +102,9 @@ log.read()
 # 4   script/master.R        1   script/master.R     timb 2008-10-08 21:20:59 GMT
 
 #Any version of a file can be accepted an arbitrary number of times.
-#You can even change the origin using arguments to log.accept() (the most recent wins).
+#You can even change the origin using arguments to logAccept() (the most recent wins).
 #We can summarize the log, to see just the latest record per file.
-log.summary()
+logSummary()
 #               file revision            origin reviewer                    time                 changed
 #3     data/drug.csv        0 script/assemble.R   anyone 2008-10-08 21:20:56 GMT 2008-10-08 21:18:42 GMT
 #1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:20:10 GMT 2008-10-08 21:18:42 GMT
@@ -113,15 +113,15 @@ log.summary()
 #Pending files have been assigned, but not accepted.  Or if accepted, their origins have changed since
 #last acceptance of the most recent version.
 #'time' is time of acceptance; 'changed' is time of last change to *origin* (usually but not always 'self').
-log.pending()
+logPending()
 #                file revision            origin reviewer                    time                 changed
 # 3     data/drug.csv        0 script/assemble.R   anyone 2008-10-08 21:20:56 GMT 2008-10-08 21:18:42 GMT
 # 1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:20:10 GMT 2008-10-08 21:18:42 GMT
 
 #If we accept these files, they are no longer pending.
-log.accept(file="script/assemble.R")
-log.accept(file="data/drug.csv")
-log.pending()
+logAccept(file="script/assemble.R")
+logAccept(file="data/drug.csv")
+logPending()
 # [1] file     revision origin   reviewer time    
 # <0 rows> (or 0-length row.names)
 
@@ -142,21 +142,21 @@ system("svn up")
 #At revision 4.
 
 #Not only is assemble.R now pending, but so is the file it creates (by virtue of its origin).
-log.pending()
+logPending()
 #               file revision            origin reviewer                    time                 changed
 #6     data/drug.csv        1 script/assemble.R     timb 2008-10-08 21:24:01 GMT 2008-10-08 21:24:55 GMT
 #5 script/assemble.R        1 script/assemble.R     timb 2008-10-08 21:23:55 GMT 2008-10-08 21:24:55 GMT
 
 #Even if we accept the new version of assemble.R, the dataset is still pending, since it was last 
 # accepted before assemble.R changed (even though the change did not affect it).
-log.accept(file="script/assemble.R")
-log.pending()
+logAccept(file="script/assemble.R")
+logPending()
 #            file revision            origin reviewer                    time                 changed
 # 6 data/drug.csv        1 script/assemble.R     timb 2008-10-08 21:24:01 GMT 2008-10-08 21:24:55 GMT
 
 #Finally, we accept the new version of drug.
-log.accept(file="data/drug.csv")
-log.pending()
+logAccept(file="data/drug.csv")
+logPending()
 # [1] file     revision origin   reviewer time     changed 
 # <0 rows> (or 0-length row.names)
 system("svn ci -m 'Done.'")
@@ -166,7 +166,7 @@ system("svn ci -m 'Done.'")
 
 #Some tools exist to let you create logs manually.
 gmt() #[1] "2008-10-08 21:46:59 GMT"
-log.queue(directory="script", file=dir("script"))
+logQueue(directory="script", file=dir("script"))
 #               file revision            origin reviewer                    time
 #1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 22:54:36 GMT
 #2   script/master.R        0   script/master.R   anyone 2008-10-08 22:54:36 GMT
