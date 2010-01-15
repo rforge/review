@@ -1,18 +1,7 @@
 `logAppend` <-
 function(new,directory=logRoot(),...){
-	old <- logRead(directory)
-	#Impute NA origin as most recent (time) value.
-	precedent <- old$origin
-	names(precedent) <- old$file
-	precedent <- precedent[order(old$file,old$time)]
-	#precedent <- rev(precedent)
-	precedent <- precedent[!is.na(precedent) & !duplicated(names(precedent),fromLast=TRUE)]
-	new$precedent <- precedent[new$file]
-	new$origin[is.na(new$origin)] <- new$precedent[is.na(new$origin)]
-	new$precedent <- NULL
-	new$origin[is.na(new$origin)] <- new$file[is.na(new$origin)]
-	#Combine old and new.
-	mix <- rbind(old[names(new)],new)
+	mix <- rbind(old,new)
+	if(with(mix,any(file==origin & rev_f!=rev_o)))stop('matching file/origin must have matching revisions')
 	file <- logName(logRoot(directory))
 	if(!file.exists(file))stop(paste("can't find",file))
 	logWrite(mix,file=file)
@@ -24,4 +13,13 @@ function(new,directory=logRoot(),...){
 	if(newrows > 0) assign("log.history",history,pos=1)
 	invisible(newrows)
 }
-
+logOrigin <- function(file, directory=logRoot(),...){
+	old <- logRead(directory)
+	precedent <- old$origin
+	names(precedent) <- old$file
+	precedent <- precedent[order(old$file,old$time)]
+	precedent <- precedent[!is.na(precedent) & !duplicated(names(precedent),fromLast=TRUE)]
+	precedent <- precedent[file]
+	precedent[is.na(precedent)] <- file[is.na(precedent)]
+	as.character(precedent)
+}

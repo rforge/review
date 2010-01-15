@@ -5,7 +5,8 @@ function(directory=getwd()){
 		data.frame(
 			file=character(0),
 			origin=character(0),
-			revision=integer(0),
+			rev_f=integer(0),
+			rev_o=integer(0),
 			reviewer=character(0),
 			time=character(0)
 		),

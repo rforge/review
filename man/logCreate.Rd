@@ -13,11 +13,12 @@ logCreate(directory = getwd())
 \details{
   Columns are as follows.  
   \itemize{
-  	\item{file}{The path and name of the accepted file, relative to the specified directory, and not beginning with "/".}
-	\item{origin}{Identical to 'file' or the name of some other file responsible for this content.}
-	\item{revision}{The reviewed revision of the file.}
-	\item{reviewer}{The R login of the reviewer of 'file'.}
-	\item{time}{Date and time (GMT) of acceptance of \em{'file'}.}
+  	\item{file}{The path and name of the accepted file, relative to the specified directory, and not beginning with "/"}
+	\item{origin}{Identical to 'file' or the name of some other file responsible for this content}
+	\item{rev_f}{The reviewed revision of the file}
+	\item{rev_o}{The review-time version of the file's origin}
+	\item{reviewer}{The R login of the reviewer of 'file'}
+	\item{time}{Date and time (GMT) of acceptance of \em{'file'}}
   }
 }
 \value{

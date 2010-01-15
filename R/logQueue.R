@@ -2,8 +2,9 @@
 function(
 	file=dir(),
 	directory=getwd(),
-	revision=0,
 	origin=file,
+	rev_f=0,
+	rev_o=0,
 	reviewer="anyone",
 	time=gmt(),
 	force=FALSE
@@ -30,10 +31,11 @@ function(
 	if(!file_test("-d",directory))stop("directory not found")
 	directory <- absDir(directory)
 	file <- sub("^/+","",file)
-	confirm(directory,file)
-	revision <- coerce("revision")
 	origin <- sub("^/+","",origin)
+	confirm(directory,file)
 	confirm(directory,origin)
+	rev_f <- coerce("rev_f")
+	rev_o <- coerce("rev_o")
 	origin <- coerce("origin")
 	reviewer <- coerce("reviewer")
 	time <- coerce("time")
@@ -41,7 +43,8 @@ function(
 	data.frame(
 		file=relPath(file=file,directory=directory),
 		origin=relPath(file=origin,directory=directory),
-		revision=revision,
+		rev_f=rev_f,
+		rev_o=rev_o,
 		reviewer=reviewer,
 		time=time,
 		stringsAsFactors=FALSE

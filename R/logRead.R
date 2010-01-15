@@ -4,7 +4,7 @@ function(directory=getwd()){
 	if(!file_test("-d",directory))stop(paste("nonexistent directory:",directory))
 	root <- logRoot(directory)
 	if(is.null(root))stop(paste(absDir(directory),"does not have a log root"))
-	read.table(
+	log <- read.table(
 		logName(logRoot(directory)),
 		header=TRUE,
 		sep=",",
@@ -12,5 +12,11 @@ function(directory=getwd()){
 		na.strings=".",
 		strip.white=TRUE
 	)
+	if('revision' %in% names(log))stop(paste(
+		'please install review 1.5 to support this log',
+		logName(logRoot(directory))
+	))
+	if(with(log,any(file==origin & rev_f!=rev_o)))warning('matching file/origin should have matching revisions')
+	log
 }
 

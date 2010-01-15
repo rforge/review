@@ -13,7 +13,8 @@ logRead(directory = getwd())
 \details{
   Regardless of the current working directory, if the directory containing the log
   is an ancestor (parent, grandparent, etc.) the log will be found and read. It is
-  an error if the directory does not exist or if the log does not exist.
+  an error if the directory does not exist or if the log does not exist, or if
+  the log is styled for package version 1.5 and earlier.
 }
 \value{
 data.frame with format much like QClog.csv

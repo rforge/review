@@ -6,20 +6,22 @@
 }
 \usage{
 logQueue(
-	file = dir(), 
-	directory = getwd(), 
-	revision = 0,
-	origin = file, 
+	file=dir(),
+	directory=getwd(),
+	origin=file,
+	rev_f=0,
+	rev_o=0,
 	reviewer="anyone",
-	time=gmt(), 
-	force = FALSE
+	time=gmt(),
+	force=FALSE
 )
 }
 \arguments{
   \item{file}{ one or more files for which to create records}
   \item{directory}{ the parent of file }
-  \item{revision}{ the svn revision of the file being reviewed }
   \item{origin}{ file(s) from which 'file' originates}
+  \item{rev_f}{ the svn revision of the file being reviewed }
+  \item{rev_o}{ the svn revision of the origin of file}
   \item{reviewer}{  the user issuing the opinion, normally oneself }
   \item{time}{ character string: date and time of acceptance, using GMT (UTC) }
   \item{force}{if false (the default) nonexistent files cause an error  }

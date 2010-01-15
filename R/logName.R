@@ -1,3 +1,3 @@
 `logName` <-
-function(directory=logRoot())paste(absDir(directory),"QClog.csv",sep="/")
+function(directory=logRoot())file.path(absDir(directory),"QClog.csv")
 
