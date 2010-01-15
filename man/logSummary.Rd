@@ -20,9 +20,10 @@ logSummary(directory = getwd())
   
   The function logSummary() uses the svn interface to retrieve the Last Changed
   Date of each \em{origin}, appending the information as the column 'changed'.
+  It retrieves the Last Changed Revision of each \em{file}, appending the information
+  as the column 'latest'.  Column order is adjusted.
   
-  Be sure to update your checkout for the most current summary.  In particular,
-  this ensures that the latest dates are represented.
+  Be sure to update your checkout for the most current summary.
 }
 \value{
 data.frame

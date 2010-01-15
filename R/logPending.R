@@ -1,6 +1,6 @@
-`logPending` <- #needs to change
+`logPending` <- 
 function(directory=getwd()){
 	log <- logSummary(directory)
-	log[with(log, time < changed | revision == 0),]
+	log[with(log, latest > revision | changed > time),]
 }
 
