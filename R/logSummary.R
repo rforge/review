@@ -11,7 +11,12 @@ function(directory=getwd()){
 	log$head_f <- sapply(absFile,revision)
 	log$head_o <- sapply(absOrigin,svnDate)
 	log <- log[,cols]
-	log$origin[log$file==log$origin] <- '=='
+	class(log) <- c('logSummary','data.frame')
 	log
 }
-
+print.logSummary <- function(x,...){
+	x$origin[x$origin==x$file] <- '=='
+	x$rev_o[x$origin=='==' & x$rev_o == x$rev_f] <- '=='
+	if(all(x$origin=='=='))x$origin <- NULL
+	if(all(x$rev_o=='=='))x$rev_o <- NULL
+}

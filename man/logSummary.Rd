@@ -1,5 +1,6 @@
 \name{logSummary}
 \alias{logSummary}
+\alias{print.logSummary}
 \title{ Summarize a Review Log }
 \description{
   Summarize the review log associated with a particular directory.
@@ -23,11 +24,14 @@ logSummary(directory = getwd())
   It retrieves the Last Changed Revision of each \em{file}, appending the information
   as the column 'latest'.  Column order is adjusted.
   
-  Be sure to update your checkout for the most current summary.
+  print.logSummary() tries to eliminate some redundant information for easier 
+  viewing.  Columns \code{origin} and \code{rev_o} are marked as '==' if identical 
+  to \code{file} and \code{ref_f}, respectively, and are dropped entirely if all '=='.
 }
 \value{
 data.frame
 }
+\note{Be sure to update your checkout for the most current summary.}
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
