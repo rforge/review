@@ -71,16 +71,16 @@ dir()
 logAssign()
 logRead()
 #               file            origin revf revo reviewer                    time
-#1 script/assemble.R script/assemble.R     0     0   anyone 2010-01-15 20:03:47 GMT
-#2   script/master.R   script/master.R     0     0   anyone 2010-01-15 20:03:47 GMT
+#1 script/assemble.R script/assemble.R    0    0   anyone 2010-01-16 03:42:25 GMT
+#2   script/master.R   script/master.R    0    0   anyone 2010-01-16 03:42:25 GMT
 
 #If we revert the assignments, then read from disk, we see our 
 # action was undone.  Note that review::revert is very different from
 # svn::revert.
 logRevert()
 logRead()
-# [1] file     origin   revf    revo    reviewer time    
-# <0 rows> (or 0-length row.names)
+#[1] file     origin   revf     revo     reviewer time    
+#<0 rows> (or 0-length row.names)
 
 #Now we assign a file; essentially we are claiming that the reviewer (default:anyone)
 # accepts revision zero.
@@ -92,42 +92,42 @@ logAssignments(reviewer=NULL)
 #Every file has an "origin": itself by default.  But since
 # our data file was created by our assembly script, that is its origin.
 setwd("..")
-logAssign(file="data/drug.csv",origin="script/assemble.R")
-logAccept(file="script/master.R")
+logAssign("data/drug.csv",origin="script/assemble.R")
+logAccept("script/master.R")
 logRead()
 #               file            origin revf revo reviewer                    time
-#1 script/assemble.R script/assemble.R     0     0   anyone 2010-01-15 20:47:02 GMT
-#2   script/master.R   script/master.R     0     0   anyone 2010-01-15 20:47:02 GMT
-#3     data/drug.csv script/assemble.R     0     0   anyone 2010-01-15 20:47:02 GMT
-#4   script/master.R   script/master.R     1     1     timb 2010-01-15 20:47:02 GMT
+#1 script/assemble.R script/assemble.R    0    0   anyone 2010-01-16 03:45:18 GMT
+#2   script/master.R   script/master.R    0    0   anyone 2010-01-16 03:45:18 GMT
+#3     data/drug.csv script/assemble.R    0    0   anyone 2010-01-16 03:45:18 GMT
+#4   script/master.R   script/master.R    1    1     timb 2010-01-16 03:45:25 GMT
 
 #Any version of a file can be accepted an arbitrary number of times.
 #You can even change the origin using arguments to logAccept() (the most recent wins).
 #We can summarize the log, to see just the latest record per file.
 logSummary()
 #               file            origin revf headf revo heado reviewer                    time
-#3     data/drug.csv script/assemble.R     0      1     0      1   anyone 2010-01-15 20:47:02 GMT
-#1 script/assemble.R                       0      1                anyone 2010-01-15 20:47:02 GMT
-#4   script/master.R                       1      1                  timb 2010-01-15 20:47:02 GMT
+#3     data/drug.csv script/assemble.R    0     1    0     1   anyone 2010-01-16 03:45:18 GMT
+#1 script/assemble.R                      0     1              anyone 2010-01-16 03:45:18 GMT
+#4   script/master.R                      1     1                timb 2010-01-16 03:45:25 GMT
 
 #Non-informative columns are not displayed.
 logSummary()[-1,]
 #               file revf headf reviewer                    time
-#1 script/assemble.R     0      1   anyone 2010-01-15 20:47:02 GMT
-#4   script/master.R     1      1     timb 2010-01-15 20:47:02 GMT
+#1 script/assemble.R    0     1   anyone 2010-01-16 03:45:18 GMT
+#4   script/master.R    1     1     timb 2010-01-16 03:45:25 GMT
 
 #Pending files have been assigned, but not accepted.  Or if accepted, they or their origins have 
 #been revised.
 logPending()
 #               file            origin revf headf revo heado reviewer                    time
-#3     data/drug.csv script/assemble.R     0      1     0      1   anyone 2010-01-15 20:47:02 GMT
-#1 script/assemble.R                       0      1                anyone 2010-01-15 20:47:02 GMT
+#3     data/drug.csv script/assemble.R    0     1    0     1   anyone 2010-01-16 03:45:18 GMT
+#1 script/assemble.R                      0     1              anyone 2010-01-16 03:45:18 GMT
 
 #If we accept these files, they are no longer pending.
 logAccept("script/assemble.R")
 logAccept("data/drug.csv")
 logPending()
-#[1] file     revf    headf   reviewer time    
+#[1] file     revf     headf    reviewer time    
 #<0 rows> (or 0-length row.names)
 
 #Check them in.
@@ -149,20 +149,20 @@ system("svn up")
 #Not only is assemble.R now pending, but so is the file it creates (by virtue of its origin).
 logPending()
 #               file            origin revf headf revo heado reviewer                    time
-#6     data/drug.csv script/assemble.R     1      1     1      4     timb 2010-01-15 20:51:22 GMT
-#5 script/assemble.R                       1      4                  timb 2010-01-15 20:51:19 GMT
+#6     data/drug.csv script/assemble.R    1     1    1     4     timb 2010-01-16 03:48:09 GMT
+#5 script/assemble.R                      1     4                timb 2010-01-16 03:48:01 GMT
 
 #Even if we accept the new version of assemble.R, the dataset is still pending, since it was last 
 # accepted before assemble.R changed (even though the change did not affect it).
-logAccept(file="script/assemble.R")
+logAccept("script/assemble.R")
 logPending()
 #           file            origin revf headf revo heado reviewer                    time
-#6 data/drug.csv script/assemble.R     1      1     1      4     timb 2010-01-15 20:51:22 GMT
+#6 data/drug.csv script/assemble.R    1     1    1     4     timb 2010-01-16 03:48:09 GMT
 
 #Finally, we accept the new version of drug.csv.
-logAccept(file="data/drug.csv")
+logAccept("data/drug.csv")
 logPending()
-#[1] file     revf    headf   reviewer time    
+#[1] file     revf     headf    reviewer time    
 #<0 rows> (or 0-length row.names)
 
 system("svn ci -m 'Done.'")
@@ -171,11 +171,11 @@ system("svn ci -m 'Done.'")
 #Committed revision 5.
 
 #Some tools exist to let you create logs manually.
-gmt() #[1] "2010-01-15 21:09:34 GMT"
-logQueue(directory="script", file=dir("script"))
+gmt() #[1] "2010-01-16 03:51:47 GMT"
+logQueue(dir("script"),directory="script")
 #               file            origin revf revo reviewer                    time
-#1 script/assemble.R script/assemble.R     0     0   anyone 2010-01-15 21:10:02 GMT
-#2   script/master.R   script/master.R     0     0   anyone 2010-01-15 21:10:02 GMT
+#1 script/assemble.R script/assemble.R    0    0   anyone 2010-01-16 03:52:47 GMT
+#2   script/master.R   script/master.R    0    0   anyone 2010-01-16 03:52:47 GMT
 
 #see also
 ?review
