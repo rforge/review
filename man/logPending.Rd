@@ -26,16 +26,16 @@ tracking the revision of the origin at time of review).
 \value{
 data.frame
 }
-\Note{
-  Be sure to update your checkout for the latest pending information.
-}
 \references{ http://metruminstitute.org }
+\note{Be sure to update your checkout for the latest pending information.}
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logSummary}},
-\code{\link{logAssignments}},
-\code{\link{logAssign}},
-\code{\link{logAccept}}, 
+	\itemize{
+		\item{}{\code{\link{logSummary}}}
+		\item{}{\code{\link{logAssignments}}}
+		\item{}{\code{\link{logAssign}}}
+		\item{}{\code{\link{logAccept}}}
+	}
 }
 \keyword{manip}
 

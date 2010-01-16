@@ -9,15 +9,15 @@ function(
 ){
 	fpath <- logTarget(file=file,directory=directory,force=force)
 	opath <- logTarget(file=origin,directory=directory,force=force)
-	rev_f <- sapply(fpath,revision)
-	rev_o <- sapply(opath,revision)
+	rev.f <- sapply(fpath,revision)
+	rev.o <- sapply(opath,revision)
 	logAppend(
 		new=logQueue(
 			file=file,
 			directory=directory,
 			origin=origin,
-			rev_f=rev_f,
-			rev_o=rev_o,
+			rev.f=rev.f,
+			rev.o=rev.o,
 			reviewer=reviewer,
 			force=force,
 			...

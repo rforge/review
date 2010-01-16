@@ -19,9 +19,11 @@ repoInfo(file = logRoot())
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{revision}},
-\code{\link{author}},
-\code{\link{logRoot}},
+	\itemize{
+		\item{}{\code{\link{revision}}}
+		\item{}{\code{\link{author}}}
+		\item{}{\code{\link{logRoot}}}
+	}
 }
 \keyword{manip}
 

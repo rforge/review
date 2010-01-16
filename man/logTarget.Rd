@@ -21,8 +21,10 @@ logTarget(file = dir(),directory = getwd(), force = FALSE)
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{absDir}},
-\code{\link{logQueue}},
+	\itemize{
+		\item{}{\code{\link{absDir}}}
+		\item{}{\code{\link{logQueue}}}
+	}
 }
 \keyword{manip}
 

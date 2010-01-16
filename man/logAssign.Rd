@@ -31,10 +31,12 @@ logAssign(file = dir(), directory = getwd(), origin = file, ...)
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logAssignments}},
-\code{\link{logAppend}},
-\code{\link{logQueue}},
-\code{\link{logAccept}}, 
+	\itemize{
+		\item{}{\code{\link{logAssignments}}}
+		\item{}{\code{\link{logAppend}}}
+		\item{}{\code{\link{logQueue}}}
+		\item{}{\code{\link{logAccept}}}
+	}
 }
 \keyword{manip}
 

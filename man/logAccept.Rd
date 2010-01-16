@@ -6,11 +6,11 @@
 }
 \usage{
 logAccept(
-	file = dir(), 
-	directory = getwd(),
-	origin = NA,
-	reviewer = Sys.info()["login"],  
-	force = FALSE, 
+	file=dir(),
+	directory=getwd(),
+	origin=logOrigin(file,directory),
+	reviewer=Sys.info()['login'],
+	force=FALSE,
 	...
 )
 }
@@ -32,9 +32,11 @@ logAccept(
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logAssign}},
-\code{\link{logQueue}},
-\code{\link{logRoot}}, 
+	\itemize{
+		\item{}{\code{\link{logAssign}}}
+		\item{}{\code{\link{logQueue}}}
+		\item{}{\code{\link{logRoot}}}
+	}
 }
 \keyword{manip}
 

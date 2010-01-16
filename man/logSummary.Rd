@@ -19,27 +19,28 @@ logSummary(directory = getwd())
   The log is read, then sorted on file, revision, time.  The last record 
   for each file is retained.
   
-  The function logSummary() uses the svn interface to retrieve the Last Changed
-  Date of each \em{origin}, appending the information as the column 'changed'.
-  It retrieves the Last Changed Revision of each \em{file}, appending the information
-  as the column 'latest'.  Column order is adjusted.
+  The function logSummary() uses the svn interface to retrieve the latest revision
+  of each file and origin, appending them as head.f and head.o respectively.
+  Column order is controled.
   
   print.logSummary() tries to eliminate some redundant information for easier 
-  viewing.  Columns \code{origin} and \code{rev_o} are marked as '==' if identical 
-  to \code{file} and \code{ref_f}, respectively, and are dropped entirely if all '=='.
+  viewing.  Columns \code{origin}, \code{rev.o}, and \code{head.o} are marked as ''
+  where non-informative, and are dropped if entirely non-informative.
 }
 \value{
 data.frame
 }
-\note{Be sure to update your checkout for the most current summary.}
 \references{ http://metruminstitute.org }
+\note{Be sure to update your checkout for the most current summary.}
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logPending}},
-\code{\link{logAssignments}},
-\code{\link{logRead}},
-\code{\link{logTarget}}, 
-\code{\link{svnDate}}, 
+	\itemize{
+		\item{}{\code{\link{logPending}}}
+		\item{}{\code{\link{logAssignments}}}
+		\item{}{\code{\link{logRead}}}
+		\item{}{\code{\link{logTarget}}}
+		\item{}{\code{\link{svnDate}}}
+	}
 }
 \keyword{manip}
 

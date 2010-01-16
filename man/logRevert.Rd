@@ -29,9 +29,11 @@ logRevert(directory = logRoot())
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logAppend}},
-\code{\link{logAssign}},
-\code{\link{logAccept}}, 
+	\itemize{
+		\item{}{\code{\link{logAppend}}}
+		\item{}{\code{\link{logAssign}}}
+		\item{}{\code{\link{logAccept}}}
+	}
 }
 \keyword{manip}
 

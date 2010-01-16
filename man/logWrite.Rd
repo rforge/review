@@ -24,10 +24,12 @@ Used for side effects.
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logRead}},
-\code{\link{logCreate}},
-\code{\link{logAppend}},
-\code{\link{help}}, 
+	\itemize{
+		\item{}{\code{\link{logRead}}}
+		\item{}{\code{\link{logCreate}}}
+		\item{}{\code{\link{logAppend}}}
+		\item{}{\code{\link{help}}}
+	}
 }
 \keyword{manip}
 

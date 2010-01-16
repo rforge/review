@@ -17,7 +17,9 @@ character
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logQueue}},
+	\itemize{
+		\item{}{\code{\link{logQueue}}}
+	}
 }
 \keyword{manip}
 

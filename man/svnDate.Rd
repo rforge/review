@@ -20,9 +20,11 @@ character
 }
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
-\seealso{ 
-\code{\link{revision}},
-\code{\link{repoInfo}},
+\seealso{
+	\itemize{
+		\item{}{\code{\link{revision}}}
+		\item{}{\code{\link{repoInfo}}}
+	}
 }
 \keyword{manip}
 

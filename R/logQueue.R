@@ -3,8 +3,8 @@ function(
 	file=dir(),
 	directory=getwd(),
 	origin=file,
-	rev_f=0,
-	rev_o=0,
+	rev.f=0,
+	rev.o=0,
 	reviewer="anyone",
 	time=gmt(),
 	force=FALSE
@@ -34,8 +34,8 @@ function(
 	origin <- sub("^/+","",origin)
 	confirm(directory,file)
 	confirm(directory,origin)
-	rev_f <- coerce("rev_f")
-	rev_o <- coerce("rev_o")
+	rev.f <- coerce("rev.f")
+	rev.o <- coerce("rev.o")
 	origin <- coerce("origin")
 	reviewer <- coerce("reviewer")
 	time <- coerce("time")
@@ -43,8 +43,8 @@ function(
 	data.frame(
 		file=relPath(file=file,directory=directory),
 		origin=relPath(file=origin,directory=directory),
-		rev_f=rev_f,
-		rev_o=rev_o,
+		rev.f=rev.f,
+		rev.o=rev.o,
 		reviewer=reviewer,
 		time=time,
 		stringsAsFactors=FALSE

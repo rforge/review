@@ -21,9 +21,11 @@ character
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logRoot}},
-\code{\link{absDir}},
-\code{\link{logCreate}},
+	\itemize{
+		\item{}{\code{\link{logRoot}}}
+		\item{}{\code{\link{absDir}}}
+		\item{}{\code{\link{logCreate}}}
+	}
 }
 \keyword{manip}
 

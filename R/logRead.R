@@ -16,7 +16,7 @@ function(directory=getwd()){
 		'please install review 1.5 to support this log',
 		logName(logRoot(directory))
 	))
-	if(with(log,any(file==origin & rev_f!=rev_o)))warning('matching file/origin should have matching revisions')
+	if(with(log,any(file==origin & rev.f!=rev.o)))warning('matching file/origin should have matching revisions')
 	log
 }
 

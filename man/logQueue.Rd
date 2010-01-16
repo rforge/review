@@ -9,8 +9,8 @@ logQueue(
 	file=dir(),
 	directory=getwd(),
 	origin=file,
-	rev_f=0,
-	rev_o=0,
+	rev.f=0,
+	rev.o=0,
 	reviewer="anyone",
 	time=gmt(),
 	force=FALSE
@@ -20,8 +20,8 @@ logQueue(
   \item{file}{ one or more files for which to create records}
   \item{directory}{ the parent of file }
   \item{origin}{ file(s) from which 'file' originates}
-  \item{rev_f}{ the svn revision of the file being reviewed }
-  \item{rev_o}{ the svn revision of the origin of file}
+  \item{rev.f}{ the svn revision of the file being reviewed }
+  \item{rev.o}{ the svn revision of the origin of file}
   \item{reviewer}{  the user issuing the opinion, normally oneself }
   \item{time}{ character string: date and time of acceptance, using GMT (UTC) }
   \item{force}{if false (the default) nonexistent files cause an error  }
@@ -41,10 +41,13 @@ data.frame, with a format much like QClog.csv
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logCreate}},
-\code{\link{logAssign}},
-\code{\link{logAccept}},
-\code{\link{logAppend}}, 
+	\itemize{
+		\item{}{\code{\link{logCreate}}}
+		\item{}{\code{\link{logAssign}}}
+		\item{}{\code{\link{logAccept}}}
+		\item{}{\code{\link{logAppend}}}
+	}
 }
+
 \keyword{manip}
 

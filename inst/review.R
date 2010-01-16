@@ -70,16 +70,16 @@ setwd("script")
 dir()
 logAssign()
 logRead()
-#               file revision            origin reviewer                    time
-#1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:18:44 GMT
-#2   script/master.R        0   script/master.R   anyone 2008-10-08 21:18:44 GMT
+#               file            origin rev.f rev.o reviewer                    time
+#1 script/assemble.R script/assemble.R     0     0   anyone 2010-01-15 20:03:47 GMT
+#2   script/master.R   script/master.R     0     0   anyone 2010-01-15 20:03:47 GMT
 
 #If we revert the assignments, then read from disk, we see our 
 # action was undone.  Note that review::revert is very different from
 # svn::revert.
 logRevert()
 logRead()
-# [1] file     revision origin   reviewer time    
+# [1] file     origin   rev.f    rev.o    reviewer time    
 # <0 rows> (or 0-length row.names)
 
 #Now we assign a file; essentially we are claiming that the reviewer (default:anyone)
@@ -95,35 +95,40 @@ setwd("..")
 logAssign(file="data/drug.csv",origin="script/assemble.R")
 logAccept(file="script/master.R")
 logRead()
-#                file revision            origin reviewer                    time
-# 1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:20:10 GMT
-# 2   script/master.R        0   script/master.R   anyone 2008-10-08 21:20:10 GMT
-# 3     data/drug.csv        0 script/assemble.R   anyone 2008-10-08 21:20:56 GMT
-# 4   script/master.R        1   script/master.R     timb 2008-10-08 21:20:59 GMT
+#               file            origin rev.f rev.o reviewer                    time
+#1 script/assemble.R script/assemble.R     0     0   anyone 2010-01-15 20:47:02 GMT
+#2   script/master.R   script/master.R     0     0   anyone 2010-01-15 20:47:02 GMT
+#3     data/drug.csv script/assemble.R     0     0   anyone 2010-01-15 20:47:02 GMT
+#4   script/master.R   script/master.R     1     1     timb 2010-01-15 20:47:02 GMT
 
 #Any version of a file can be accepted an arbitrary number of times.
 #You can even change the origin using arguments to logAccept() (the most recent wins).
 #We can summarize the log, to see just the latest record per file.
 logSummary()
-#               file revision            origin reviewer                    time                 changed
-#3     data/drug.csv        0 script/assemble.R   anyone 2008-10-08 21:20:56 GMT 2008-10-08 21:18:42 GMT
-#1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:20:10 GMT 2008-10-08 21:18:42 GMT
-#4   script/master.R        1   script/master.R     timb 2008-10-08 21:20:59 GMT 2008-10-08 21:18:42 GMT
+#               file            origin rev.f head.f rev.o head.o reviewer                    time
+#3     data/drug.csv script/assemble.R     0      1     0      1   anyone 2010-01-15 20:47:02 GMT
+#1 script/assemble.R                       0      1                anyone 2010-01-15 20:47:02 GMT
+#4   script/master.R                       1      1                  timb 2010-01-15 20:47:02 GMT
 
-#Pending files have been assigned, but not accepted.  Or if accepted, their origins have changed since
-#last acceptance of the most recent version.
-#'time' is time of acceptance; 'changed' is time of last change to *origin* (usually but not always 'self').
+#Non-informative columns are not displayed.
+logSummary()[-1,]
+#               file rev.f head.f reviewer                    time
+#1 script/assemble.R     0      1   anyone 2010-01-15 20:47:02 GMT
+#4   script/master.R     1      1     timb 2010-01-15 20:47:02 GMT
+
+#Pending files have been assigned, but not accepted.  Or if accepted, they or their origins have 
+#been revised.
 logPending()
-#                file revision            origin reviewer                    time                 changed
-# 3     data/drug.csv        0 script/assemble.R   anyone 2008-10-08 21:20:56 GMT 2008-10-08 21:18:42 GMT
-# 1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 21:20:10 GMT 2008-10-08 21:18:42 GMT
+#               file            origin rev.f head.f rev.o head.o reviewer                    time
+#3     data/drug.csv script/assemble.R     0      1     0      1   anyone 2010-01-15 20:47:02 GMT
+#1 script/assemble.R                       0      1                anyone 2010-01-15 20:47:02 GMT
 
 #If we accept these files, they are no longer pending.
-logAccept(file="script/assemble.R")
-logAccept(file="data/drug.csv")
+logAccept("script/assemble.R")
+logAccept("data/drug.csv")
 logPending()
-# [1] file     revision origin   reviewer time    
-# <0 rows> (or 0-length row.names)
+#[1] file     rev.f    head.f   reviewer time    
+#<0 rows> (or 0-length row.names)
 
 #Check them in.
 system("svn ci -m 'qc complete'")
@@ -143,33 +148,34 @@ system("svn up")
 
 #Not only is assemble.R now pending, but so is the file it creates (by virtue of its origin).
 logPending()
-#               file revision            origin reviewer                    time                 changed
-#6     data/drug.csv        1 script/assemble.R     timb 2008-10-08 21:24:01 GMT 2008-10-08 21:24:55 GMT
-#5 script/assemble.R        1 script/assemble.R     timb 2008-10-08 21:23:55 GMT 2008-10-08 21:24:55 GMT
+#               file            origin rev.f head.f rev.o head.o reviewer                    time
+#6     data/drug.csv script/assemble.R     1      1     1      4     timb 2010-01-15 20:51:22 GMT
+#5 script/assemble.R                       1      4                  timb 2010-01-15 20:51:19 GMT
 
 #Even if we accept the new version of assemble.R, the dataset is still pending, since it was last 
 # accepted before assemble.R changed (even though the change did not affect it).
 logAccept(file="script/assemble.R")
 logPending()
-#            file revision            origin reviewer                    time                 changed
-# 6 data/drug.csv        1 script/assemble.R     timb 2008-10-08 21:24:01 GMT 2008-10-08 21:24:55 GMT
+#           file            origin rev.f head.f rev.o head.o reviewer                    time
+#6 data/drug.csv script/assemble.R     1      1     1      4     timb 2010-01-15 20:51:22 GMT
 
-#Finally, we accept the new version of drug.
+#Finally, we accept the new version of drug.csv.
 logAccept(file="data/drug.csv")
 logPending()
-# [1] file     revision origin   reviewer time     changed 
-# <0 rows> (or 0-length row.names)
+#[1] file     rev.f    head.f   reviewer time    
+#<0 rows> (or 0-length row.names)
+
 system("svn ci -m 'Done.'")
 #Sending        QClog.csv
 #Transmitting file data .
 #Committed revision 5.
 
 #Some tools exist to let you create logs manually.
-gmt() #[1] "2008-10-08 21:46:59 GMT"
+gmt() #[1] "2010-01-15 21:09:34 GMT"
 logQueue(directory="script", file=dir("script"))
-#               file revision            origin reviewer                    time
-#1 script/assemble.R        0 script/assemble.R   anyone 2008-10-08 22:54:36 GMT
-#2   script/master.R        0   script/master.R   anyone 2008-10-08 22:54:36 GMT
+#               file            origin rev.f rev.o reviewer                    time
+#1 script/assemble.R script/assemble.R     0     0   anyone 2010-01-15 21:10:02 GMT
+#2   script/master.R   script/master.R     0     0   anyone 2010-01-15 21:10:02 GMT
 
 #see also
 ?review

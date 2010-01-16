@@ -25,9 +25,11 @@ file origin, if any, or file itself where precedent not available.
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logAssign}},
-\code{\link{logAccept}},
-\code{\link{logQueue}}, 
+	\itemize{
+		\item{}{\code{\link{logAssign}}}
+		\item{}{\code{\link{logQueue}}}
+		\item{}{\code{\link{logAccept}}}
+	}
 }
 \keyword{manip}
 

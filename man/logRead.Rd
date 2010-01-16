@@ -22,10 +22,12 @@ data.frame with format much like QClog.csv
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logCreate}},
-\code{\link{logRoot}},
-\code{\link{logAppend}},
-\code{\link{logWrite}}, 
+	\itemize{
+		\item{}{\code{\link{logCreate}}}
+		\item{}{\code{\link{logRoot}}}
+		\item{}{\code{\link{logAppend}}}
+		\item{}{\code{\link{logWrite}}}
+	}
 }
 \keyword{manip}
 

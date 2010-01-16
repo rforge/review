@@ -21,10 +21,12 @@ character: the full path and name of the directory containing the review log.
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{parentDir}},
-\code{\link{logName}},
-\code{\link{logCreate}},
-\code{\link{logAppend}}, 
+	\itemize{
+		\item{}{\code{\link{parentDir}}}
+		\item{}{\code{\link{logName}}}
+		\item{}{\code{\link{logCreate}}}
+		\item{}{\code{\link{logAppend}}}
+	}
 }
 \keyword{manip}
 

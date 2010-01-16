@@ -22,9 +22,11 @@ character
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{logPending}},
-\code{\link{logAssign}},
-\code{\link{logAccept}},
+	\itemize{
+		\item{}{\code{\link{logAssign}}}
+		\item{}{\code{\link{logPending}}}
+		\item{}{\code{\link{logAccept}}}
+	}
 }
 \keyword{manip}
 

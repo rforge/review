@@ -21,8 +21,10 @@ numeric
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{author}},
-\code{\link{repoInfo}},
+	\itemize{
+		\item{}{\code{\link{author}}}
+		\item{}{\code{\link{repoInfo}}}
+	}
 }
 \keyword{manip}
 

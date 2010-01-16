@@ -21,10 +21,13 @@ character vector
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
-\code{\link{parentDir}},
-\code{\link{absDir}},
-\code{\link{logRoot}},
-\code{\link{help}}, 
+	\itemize{
+		\item{}{\code{\link{parentDir}}}
+		\item{}{\code{\link{absDir}}}
+		\item{}{\code{\link{logRoot}}}
+		\item{}{\code{\link{help}}}
+	}
 }
+
 \keyword{manip}
 
