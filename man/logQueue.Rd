@@ -9,8 +9,8 @@ logQueue(
 	file=dir(),
 	directory=getwd(),
 	origin=file,
-	rev.f=0,
-	rev.o=0,
+	revf=0,
+	revo=0,
 	reviewer="anyone",
 	time=gmt(),
 	force=FALSE
@@ -20,8 +20,8 @@ logQueue(
   \item{file}{ one or more files for which to create records}
   \item{directory}{ the parent of file }
   \item{origin}{ file(s) from which 'file' originates}
-  \item{rev.f}{ the svn revision of the file being reviewed }
-  \item{rev.o}{ the svn revision of the origin of file}
+  \item{revf}{ the svn revision of the file being reviewed }
+  \item{revo}{ the svn revision of the origin of file}
   \item{reviewer}{  the user issuing the opinion, normally oneself }
   \item{time}{ character string: date and time of acceptance, using GMT (UTC) }
   \item{force}{if false (the default) nonexistent files cause an error  }

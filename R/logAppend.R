@@ -2,7 +2,7 @@
 function(new,directory=logRoot(),...){
 	old <- logRead(directory)
 	mix <- rbind(old,new)
-	if(with(mix,any(file==origin & rev.f!=rev.o)))stop('matching file/origin must have matching revisions')
+	if(with(mix,any(file==origin & revf!=revo)))stop('matching file/origin must have matching revisions')
 	file <- logName(logRoot(directory))
 	if(!file.exists(file))stop(paste("can't find",file))
 	logWrite(mix,file=file)
