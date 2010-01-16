@@ -20,8 +20,8 @@ logSummary(directory = getwd())
   for each file is retained.
   
   The function logSummary() uses the svn interface to retrieve the latest ('head') revision
-  of each file and origin, appending them as headf and heado respectively.
-  Column order is controled.
+  of each file and origin, appending them as \code{headf} and \code{heado} respectively.
+  Column order is controlled.
   
   print.logSummary() tries to eliminate some redundant information for easier 
   viewing.  Columns \code{origin}, \code{revo}, and \code{heado} are marked as ''
