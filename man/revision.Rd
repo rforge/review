@@ -12,8 +12,8 @@ revision(file = logRoot())
 }
 \details{
   If the file is not subversioned, NA is returned. This function is not vectorized,
-  so use sapply for multiple files.
-
+  so use sapply for multiple files.  The file name will be single-quoted if it
+  contains a space and does not start with single or double quote.
 }
 \value{
 numeric
