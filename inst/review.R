@@ -177,5 +177,8 @@ logQueue(dir("script"),directory="script")
 #1 script/assemble.R script/assemble.R    0    0   anyone 2010-01-16 03:52:47 GMT
 #2   script/master.R   script/master.R    0    0   anyone 2010-01-16 03:52:47 GMT
 
+#Create a table suitable for an appendix.
+logAppendix()
+
 #see also
 ?review
