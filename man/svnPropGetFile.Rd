@@ -8,7 +8,7 @@
   \item{file}{scalar character file name}
   \item{prop}{scalar character property name}
 }
-\details{Returns NA if file is does not exist or is not subversioned.
+\details{Returns NA if file is not subversioned.
  Returns an empty string if the property is not defined.}
 \value{character}
 \references{ http://metruminstitute.org }

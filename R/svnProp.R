@@ -3,7 +3,6 @@ isSubversionedFile <- function(file){
 		is.character(file),
 		length(file)==1
 	)
-	if(!file.exists(file))return(FALSE)
 	info <- system(paste('svn info',file),intern=TRUE,ignore.stderr=TRUE)
 	as.logical(length(info))
 }
@@ -43,14 +42,7 @@ svnIsText <-function(x,...){#http://subversion.apache.org/faq.html#binary-files
 	xpix <- type == 'image/x-xpixmap'
 	none | text | xbit | xpix
 }
-svnMarkAsText <- function(x,...){
-	x <- x[isSubversioned(x)]
-	x <- x[!svnIsText(x)]
-	svnPropSet(x,prop='svn:mime-type',value='text/user')
-}
-svnMarkAsNonText <- function(x,...){
-	x <- x[isSubversioned(x)]
-	x <- x[svnIsText(x)]
-	svnPropSet(x,prop='svn:mime-type',value='application/octetstream')
-}
+svnMarkAsText <- function(x,...)svnPropSet(x,prop='svn:mime-type',value='text/')
+svnMarkAsNonText <- function(x,...)svnPropSet(x,prop='svn:mime-type',value='application/octet-stream')
+
 	

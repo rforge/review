@@ -9,9 +9,8 @@
   \item{\dots}{ignored}
 }
 \details{
-\code{x} is reduced to those file names that are subversioned
-and are not already considered \sQuote{text}.  Then the property \sQuote{svn:mime-type}
-is set to \sQuote{application/octetstream}.
+For each Subversioned file in \code{x}, the property \sQuote{svn:mime-type}
+is set to \sQuote{application/octet-stream}.
 }
 \value{numeric}
 \references{ http://metruminstitute.org }

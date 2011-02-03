@@ -7,7 +7,7 @@
 \arguments{
   \item{file}{scalar character file name}
 }
-\details{Returns \code{FALSE} if file does not exist.}
+\details{May return \code{TRUE} even if file does not exist.}
 \value{logical}
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }

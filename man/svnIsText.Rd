@@ -12,10 +12,9 @@
 	When a file is added, Subversion guesses whether it is text
 	or binary, storing the decision implicitly as the value (or
 	lack thereof) of the svn:mime-type property.  This function
-	makes that decision explicit. Returns NA for files that do not
-	exist, or are not Subversioned.  If you don't agree with Subversion's
-	determination, you can alter it manually, or with \code{svnMarkAsText}
-	or \code{svnMarkAsNonText}.
+	makes that decision explicit. Returns NA for files that are not Subversioned.  
+	If you don't agree with Subversion's determination, you can alter it 
+	manually, or with \code{svnMarkAsText} or \code{svnMarkAsNonText}.
 }
 \value{logical}
 \references{ http://metruminstitute.org }

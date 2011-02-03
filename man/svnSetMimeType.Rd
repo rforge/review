@@ -11,7 +11,7 @@
 }
 \details{
 	Sets Subversion property \sQuote{svn:mime-type} to \code{type}, 
-	e.g. \sQuote{/text} or \sQuote{application/octetstream}.
+	e.g. \sQuote{/text} or \sQuote{application/octet-stream}.
 	Just a wrapper for svnPropSet.
 }
 \value{numeric}
