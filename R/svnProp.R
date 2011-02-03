@@ -13,10 +13,8 @@ svnPropGetFile <- function(file,prop){
 		is.character(file),
 		is.character(prop),
 		length(file)==1,
-		length(prop)==1,
-		file.exists(file)
+		length(prop)==1
 	)
-	stat <- isSubversionedFile(file)
 	if(!isSubversionedFile(file))return(NA)
 	res <- system(paste("svn propget",prop,file),intern=TRUE)
 	if(length(res))return(res)else(return(''))
@@ -30,7 +28,6 @@ svnPropSetFile <- function(file,prop,value){
 		length(file)==1,
 		length(prop)==1,
 		length(value)==1,
-		file.exists(file),
 		isSubversionedFile(file)
 	)
 	system(paste("svn propset",prop,value,file),intern=TRUE)
@@ -38,7 +35,7 @@ svnPropSetFile <- function(file,prop,value){
 svnPropSet <- function(x,prop,value,...)sapply(x,svnPropSetFile,prop=prop,value=value)
 svnMimeType <- function(x,...)sapply(x,svnPropGet,prop='svn:mime-type')
 svnSetMimeType <- function(x,type,...)svnPropSet(x,prop='svn:mime-type',value=type)
-svnIsText <-function(x,...){#//http://subversion.apache.org/faq.html#binary-files
+svnIsText <-function(x,...){#http://subversion.apache.org/faq.html#binary-files
 	type <- svnMimeType(x,...)
 	none <- type == ''
 	text <- regexpr('$text/',type) >= 0
