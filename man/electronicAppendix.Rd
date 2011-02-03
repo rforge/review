@@ -34,7 +34,7 @@
 \seealso{
 	\itemize{
 		\item \code{\link{dir}}
-		\item \code{\link{svnTxt}}
+		\item \code{\link{svnIsText}}
 		\item \code{\link{svnMarkAsText}}
 		\item \code{\link{svnMarkAsNonText}}
 	}
