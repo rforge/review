@@ -1,7 +1,7 @@
 \name{svnMarkAsText}
 \alias{svnMarkAsText}
-\title{Mark Subversioned File as Text}
-\description{Mark subversioned file as text, rather than binary.}
+\title{Mark Subversioned Files as Text}
+\description{Mark subversioned files as text, rather than binary.}
 \usage{svnMarkAsText(x, ...)
 }
 \arguments{

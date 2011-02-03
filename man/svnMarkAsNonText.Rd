@@ -1,7 +1,7 @@
 \name{svnMarkAsNonText}
 \alias{svnMarkAsNonText}
-\title{}
-\description{}
+\title{Mark Subversioned Files as Non-text.}
+\description{Mark Subversioned files as non-text.}
 \usage{svnMarkAsNonText(x, ...)
 }
 \arguments{
