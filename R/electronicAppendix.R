@@ -28,7 +28,8 @@ electronicAppendix <- function(
 		!is.na(txt) & #maybe redundant, as files not subversioned (will have na txt but) will not be exported.
 		txt 
 	]
-	file.rename(change,paste(sep='',change,'.txt'))
+	append.txt <- function(x)file.rename(x,paste(sep='',x,'.txt'))
+	sapply(change,append.txt)
 	if(zip)system(paste('zip -r',zipname,tmpdir))
 	else file.copy(from=tmpdir,to=as,recursive=TRUE)
 	unlink(tmpdir)
