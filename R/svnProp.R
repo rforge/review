@@ -26,8 +26,7 @@ svnPropSetFile <- function(file,prop,value){
 		is.character(value),
 		length(file)==1,
 		length(prop)==1,
-		length(value)==1,
-		isSubversionedFile(file)
+		length(value)==1
 	)
 	system(paste("svn propset",prop,value,file),intern=TRUE)
 }

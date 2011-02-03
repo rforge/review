@@ -25,7 +25,7 @@ electronicAppendix <- function(
 	txt <- svnIsText(local)
 	change <- foreign[ 
 		file.exists(foreign) & 
-		!is.na(txt) & 
+		!is.na(txt) & #maybe redundant, as files not subversioned (will have na txt but) will not be exported.
 		txt 
 	]
 	file.rename(change,paste(sep='',change,'.txt'))
