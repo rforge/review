@@ -22,7 +22,7 @@ electronicAppendix <- function(
 	system(paste('svn export',x,tmpdir))
 	local <- file.path(x,files)
 	foreign <- file.path(tmpdir,files)
-	txt <- svnText(local)
+	txt <- svnIsText(local)
 	change <- foreign[ 
 		file.exists(foreign) & 
 		!is.na(txt) & 

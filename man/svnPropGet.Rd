@@ -2,7 +2,7 @@
 \alias{svnPropGet}
 \title{Get Subversion Property for a Vector of Files}
 \description{Retrieve a given Subversion property for multiple files.}
-\usage{svnPropget(x,prop,...)}
+\usage{svnPropGet(x,prop,...)}
 \arguments{
   \item{x}{character vector of file names}
   \item{prop}{a property}
