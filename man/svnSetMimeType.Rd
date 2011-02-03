@@ -14,7 +14,7 @@
 	e.g. \sQuote{/text} or \sQuote{application/octet-stream}.
 	Just a wrapper for svnPropSet.
 }
-\value{numeric}
+\value{used for side effects}
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{

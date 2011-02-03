@@ -12,7 +12,7 @@
 For each Subversioned file in \code{x}, the property \sQuote{svn:mime-type}
 is set to \sQuote{text/}.
 }
-\value{numeric}
+\value{used for side effects}
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{

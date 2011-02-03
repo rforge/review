@@ -11,7 +11,7 @@
   \item{\dots}{ignored arguments}
 }
 \details{This is a vectorized version of svnPropSetFile.}
-\value{numeric}
+\value{used for side effects}
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{

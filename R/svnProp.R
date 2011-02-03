@@ -31,12 +31,12 @@ svnPropSetFile <- function(file,prop,value){
 	system(paste("svn propset",prop,value,file),intern=TRUE)
 }
 svnPropSet <- function(x,prop,value,...)sapply(x,svnPropSetFile,prop=prop,value=value)
-svnMimeType <- function(x,...)sapply(x,svnPropGet,prop='svn:mime-type')
+svnMimeType <- function(x,...)svnPropGet(x,prop='svn:mime-type')
 svnSetMimeType <- function(x,type,...)svnPropSet(x,prop='svn:mime-type',value=type)
 svnIsText <-function(x,...){#http://subversion.apache.org/faq.html#binary-files
 	type <- svnMimeType(x,...)
 	none <- type == ''
-	text <- regexpr('$text/',type) >= 0
+	text <- regexpr('^text/',type) >= 0
 	xbit <- type == 'image/x-xbitmap'
 	xpix <- type == 'image/x-xpixmap'
 	none | text | xbit | xpix

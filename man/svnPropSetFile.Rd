@@ -10,7 +10,7 @@
   \item{value}{scalar character property value}
 }
 \details{It is an error if the file is not subversioned.}
-\value{0 if successful, 1 if not.}
+\value{used for side effects}
 \references{ http://metruminstitute.org }
 \author{ Tim Bergsma }
 \seealso{
