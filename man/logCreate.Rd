@@ -12,13 +12,13 @@ logCreate(directory = getwd())
 }
 \details{
   Columns are as follows.  
-  \itemize{
-  	\item{file}{The path and name of the accepted file, relative to the specified directory, and not beginning with "/"}
-	\item{origin}{Identical to 'file' or the name of some other file responsible for this content}
-	\item{revf}{The reviewed revision of the file}
-	\item{revo}{The review-time version of the file's origin}
-	\item{reviewer}{The R login of the reviewer of 'file'}
-	\item{time}{Date and time (GMT) of acceptance of \em{'file'}}
+  \describe{
+  	\item{file}{the path and name of the accepted file, relative to the specified directory, and not beginning with "/"}
+	\item{origin}{identical to \code{file} or the name of some other file responsible for this content}
+	\item{revf}{the reviewed revision of \code{file}}
+	\item{revo}{the review-time version of \code{file}'s origin}
+	\item{reviewer}{the \R login of the reviewer of \code{file}}
+	\item{time}{date and time (GMT) of acceptance of \code{file}}
   }
 }
 \value{
@@ -28,9 +28,9 @@ used for side effects.
 \author{ Tim Bergsma }
 \seealso{
 	\itemize{
-		\item{}{\code{\link{logName}}}
-		\item{}{\code{\link{logAssign}}}
-		\item{}{\code{\link{logAccept}}}
+		\item \code{\link{logName}}
+		\item \code{\link{logAssign}}
+		\item \code{\link{logAccept}}
 	}
 }
 \keyword{manip}

@@ -16,6 +16,7 @@ logAppendix(
 	caption='Summary of file review: file, last version reviewed (revf), system identifier of reviewer, and time of acceptance.',
 	caption.lot='Summary of file review',
 	where='H',
+	show=TRUE,
 	...
 )
 }
@@ -28,6 +29,7 @@ logAppendix(
   \item{caption}{table caption}
   \item{caption.lot}{caption variant for use in list of tables}
   \item{where}{default H ("here") places table exactly where specified}
+  \item{show}{default TRUE invokes the dvi viewer}
   \item{\dots}{passed to \code{latex}}
 }
 \details{
