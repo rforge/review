@@ -31,8 +31,8 @@ electronicAppendix <- function(
 	append.txt <- function(x)file.rename(x,paste(sep='',x,'.txt'))
 	sapply(change,append.txt)
 	if(zip)system(paste('zip -r',zipname,tmpdir))
-	else file.copy(from=tmpdir,to=as,recursive=TRUE)
-	unlink(tmpdir)
+	else file.rename(from=tmpdir,to=as)
+	if(file.exists(tmpdir))unlink(tmpdir)
 }
 	
 	
