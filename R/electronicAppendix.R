@@ -12,6 +12,7 @@ electronicAppendix <- function(
 	if(regexpr('\\.zip$',as,ignore.case=TRUE)>=0)stop("'as' must be specified as a directory")
 	zipname <- paste(sep='',as,'.zip')
 	if(!zip & file.exists(as))stop(as,' already exists')#only tolerated if zip is true
+	conflict <- file.exists(as)
 	if(zip & file.exists(zipname))stop(zipname,' already exists')
 	tmpdir <- paste(sep='',as,'_tmp')
 	if(file.exists(tmpdir))unlink(tmpdir,recursive=TRUE)
@@ -32,8 +33,8 @@ electronicAppendix <- function(
 	]
 	append.txt <- function(x)file.rename(x,paste(sep='',x,'.txt'))
 	sapply(change,append.txt)
-	setaside <- paste(sep='',x,'_EA_bak')
-	if(zip)file.rename(from=x,to=setaside)
+	setaside <- paste(sep='',as,'_EA_bak')
+	if(conflict)file.rename(from=as,to=setaside)
 	file.rename(from=tmpdir,to=as)
 	tryCatch(
 		if(zip){
@@ -41,7 +42,7 @@ electronicAppendix <- function(
 			unlink(as,recursive=TRUE)
 		},
 		error=function(e)stop('cannot zip or unlink ',as,call.=FALSE),
-		finally=if(zip)file.rename(from=setaside,to=x)
+		finally=if(conflict)file.rename(from=setaside,to=as)
 	)
 }
 	

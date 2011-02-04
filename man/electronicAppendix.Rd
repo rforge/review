@@ -30,8 +30,8 @@
 	
 	\code{as} must be specified as a directory name.  If \code{zip} is \code{TRUE}, .zip will be added.
 	
-	\code{x} and \code{as} cannot be the same unless \code{zip} is true, in which
-	case \code{x} will be renamed temporarily while \code{as} is zipped and unlinked.
+	\code{as} cannot pre-exist unless \code{zip} is true, in which
+	case \code{as} will be renamed temporarily while its namesake is zipped and unlinked.
 }
 \value{used for side effects}
 \references{ http://metruminstitute.org }
