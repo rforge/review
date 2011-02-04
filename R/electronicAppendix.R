@@ -7,8 +7,9 @@ electronicAppendix <- function(
 	zip=FALSE,
 	...
 ){
+	stopifnot(length(x)==1,length(as)==1)
 	if(!file.exists(x))stop('cannot find',file)
-	if(contains('\\.zip$',as,ignore.case=TRUE))stop('as must be specified as a directory')
+	if(regexpr('\\.zip$',as,ignore.case=TRUE)>=0)stop('as must be specified as a directory')
 	zipname <- paste(sep='',as,'.zip')
 	if(!zip & file.exists(as))stop(as,'already exists')#only tolerated if zip is true
 	if(zip & file.exists(zipname))stop(zipname,'already exists')
