@@ -8,12 +8,11 @@ electronicAppendix <- function(
 	...
 ){
 	stopifnot(length(x)==1,length(as)==1)
-	if(!file.exists(x))stop('cannot find',file)
+	if(!file.exists(x))stop('cannot find ',file)
 	if(regexpr('\\.zip$',as,ignore.case=TRUE)>=0)stop('as must be specified as a directory')
 	zipname <- paste(sep='',as,'.zip')
-	if(!zip & file.exists(as))stop(as,'already exists')#only tolerated if zip is true
-	if(zip & file.exists(zipname))stop(zipname,'already exists')
-	identity <- absDir(x)==absDir(as) #only a problem if zip is true
+	if(!zip & file.exists(as))stop(as,' already exists')#only tolerated if zip is true
+	if(zip & file.exists(zipname))stop(zipname,' already exists')
 	tmpdir <- paste(sep='',as,'_tmp')
 	if(file.exists(tmpdir))unlink(tmpdir,recursive=TRUE)
 	files <- dir(
@@ -34,15 +33,15 @@ electronicAppendix <- function(
 	append.txt <- function(x)file.rename(x,paste(sep='',x,'.txt'))
 	sapply(change,append.txt)
 	setaside <- paste(sep='',x,'_EA_bak')
-	if(identity)file.rename(from=x,to=setaside)
+	if(zip)file.rename(from=x,to=setaside)
 	file.rename(from=tmpdir,to=as)
 	tryCatch(
 		if(zip){
 			system(paste('zip -r',zipname,as))
 			unlink(as,recursive=TRUE)
 		},
-		error=function(e)stop('cannot zip or unlink',as,call.=FALSE),
-		finally=if(identity)file.rename(from=setaside,to=x)
+		error=function(e)stop('cannot zip or unlink ',as,call.=FALSE),
+		finally=if(zip)file.rename(from=setaside,to=x)
 	)
 }
 	
