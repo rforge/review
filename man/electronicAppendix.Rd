@@ -25,8 +25,13 @@
 	For finer control over what is considered text, see \code{svnMarkAsText}
 	and \code{svnMarkAsNonText}.
 	
-	Note that missing files and non-subversioned files will not be 
-	included in the electronic appendix.
+	Note that non-subversioned files will not be included in the electronic appendix. 
+	An error results if any file is subversioned but missing.
+	
+	\code{as} must be specified as a directory name.  If \code{zip} is \code{TRUE}, .zip will be added.
+	
+	\code{x} and \code{as} cannot be the same unless \code{zip} is true, in which
+	case \code{x} will be renamed temporarily while \code{as} is zipped and unlinked.
 }
 \value{used for side effects}
 \references{ http://metruminstitute.org }
