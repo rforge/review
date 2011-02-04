@@ -9,9 +9,10 @@ electronicAppendix <- function(
 ){
 	zipname <- paste(sep='',as,'.zip')
 	if(!file.exists(x))stop('cannot find',file)
-	if(file.exists(as))stop(as,'already exists')
+	if(!zip & file.exists(as))stop(as,'already exists')#only tolerated if zip is true
 	if(zip & file.exists(zipname))stop(zipname,'already exists')
-	tmpdir <- paste(sep='',as,'ea')
+	identity <- absDir(x)==absDir(as) #only a problem if zip is true
+	tmpdir <- paste(sep='',as,'_tmp')
 	if(file.exists(tmpdir))unlink(tmpdir,recursive=TRUE)
 	files <- dir(
 		path=x,
@@ -30,9 +31,17 @@ electronicAppendix <- function(
 	]
 	append.txt <- function(x)file.rename(x,paste(sep='',x,'.txt'))
 	sapply(change,append.txt)
-	if(zip)system(paste('zip -r',zipname,tmpdir))
-	else file.rename(from=tmpdir,to=as)
-	if(file.exists(tmpdir))unlink(tmpdir)
+	setaside <- paste(sep='',x,'_EA_bak')
+	if(identity)file.rename(from=x,to=setaside)
+	file.rename(from=tmpdir,to=as)
+	tryCatch(
+		if(zip){
+			system(paste('zip -r',zipname,as))
+			unlink(as,recursive=TRUE)
+		},
+		error=function(e)stop('cannot zip or unlink',as,call.=FALSE),
+		finally=if(identity)file.rename(from=setaside,to=x)
+	)
 }
 	
 	
