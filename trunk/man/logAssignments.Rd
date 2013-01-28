@@ -5,7 +5,7 @@
   Gives a vector of the pending files assigned to reviewer (normally oneself).
 }
 \usage{
-logAssignments(directory = getwd(), reviewer = Sys.info()[["login"]])
+logAssignments(directory = getwd(), reviewer = Sys.info()[["user"]])
 }
 \arguments{
   \item{directory}{ the directory containing the log, or any directory below it}

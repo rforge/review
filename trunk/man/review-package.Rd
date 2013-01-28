@@ -12,8 +12,8 @@ Functions for managing logs of reviews of subversioned files.
 \tabular{ll}{
 Package: \tab review\cr
 Type: \tab Package\cr
-Version: \tab 2.4.1\cr
-Date: \tab 2011-01-11\cr
+Version: \tab 2.4.3\cr
+Date: \tab 2013-01-28\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }

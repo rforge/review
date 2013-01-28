@@ -17,7 +17,7 @@ logCreate(directory = getwd())
 	\item{origin}{identical to \code{file} or the name of some other file responsible for this content}
 	\item{revf}{the reviewed revision of \code{file}}
 	\item{revo}{the review-time version of \code{file}'s origin}
-	\item{reviewer}{the \R login of the reviewer of \code{file}}
+	\item{reviewer}{the \R user name of the reviewer of \code{file}}
 	\item{time}{date and time (GMT) of acceptance of \code{file}}
   }
 }

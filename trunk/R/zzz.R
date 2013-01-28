@@ -1,10 +1,3 @@
-.First.lib <-function(lib,pkg)
-{
-    ver <- as.character(
-    	read.dcf(
-		file=file.path(lib,pkg,"DESCRIPTION"), 
-		fields="Version"
-	)
-    )
-    cat("review", ver, "loaded\n")
- }
+.onAttach <- function(libname,pkgname){
+	packageStartupMessage(paste('review',utils::packageDescription('review',fields='Version')))
+}

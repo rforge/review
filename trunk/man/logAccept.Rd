@@ -9,7 +9,7 @@ logAccept(
 	file=dir(),
 	directory=getwd(),
 	origin=logOrigin(file,directory),
-	reviewer=Sys.info()['login'],
+	reviewer=Sys.info()['user'],
 	force=FALSE,
 	...
 )
