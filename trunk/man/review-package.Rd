@@ -6,14 +6,14 @@
  Manage Review Logs
 }
 \description{
-Functions for managing logs of reviews of subversioned files.
+Functions for managing logs of reviews of subversioned files (http://subversion.apache.org/).
 }
 \details{
 \tabular{ll}{
 Package: \tab review\cr
 Type: \tab Package\cr
-Version: \tab 2.4.3\cr
-Date: \tab 2013-01-28\cr
+Version: \tab 2.4.4\cr
+Date: \tab 2013-04-18\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
@@ -86,7 +86,6 @@ Maintainer: Tim Bergsma <timb@metrumrg.com>
 	\item \code{\link{logTarget}}
 	\item \code{\link{logQueue}}
 	\item \code{\link{logAppend}}
-	\item \code{\link{logRevert}}
 	\item \code{\link{logAssign}}
 	\item \code{\link{logAccept}}
 	\item \code{\link{logSummary}}

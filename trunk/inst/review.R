@@ -68,20 +68,6 @@ dir(recursive=TRUE)
 # just those files, by default.
 setwd("script")
 dir()
-logAssign()
-logRead()
-#               file            origin revf revo reviewer                    time
-#1 script/assemble.R script/assemble.R    0    0   anyone 2010-01-16 03:42:25 GMT
-#2   script/master.R   script/master.R    0    0   anyone 2010-01-16 03:42:25 GMT
-
-#If we revert the assignments, then read from disk, we see our 
-# action was undone.  Note that review::revert is very different from
-# svn::revert.
-logRevert()
-logRead()
-#[1] file     origin   revf     revo     reviewer time    
-#<0 rows> (or 0-length row.names)
-
 #Now we assign a file; essentially we are claiming that the reviewer (default:anyone)
 # accepts revision zero.
 logAssign()

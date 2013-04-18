@@ -6,12 +6,12 @@ function(new,directory=logRoot(),...){
 	file <- logName(logRoot(directory))
 	if(!file.exists(file))stop(paste("can't find",file))
 	logWrite(mix,file=file)
-	history <- list()
-	if(exists("log.history",where=1)) history <- get("log.history",pos=1)
+	#history <- list()
+	#if(exists("log.history",where=1)) history <- get("log.history",pos=1)
 	newrows <- nrow(new)
-	if(is.null(history[[file]])) history[[file]] <- newrows
-	else history[[file]] <- append(history[[file]],newrows)
-	if(newrows > 0) assign("log.history",history,pos=1)
+	#if(is.null(history[[file]])) history[[file]] <- newrows
+	#else history[[file]] <- append(history[[file]],newrows)
+	#if(newrows > 0) assign("log.history",history,pos=1)
 	invisible(newrows)
 }
 logOrigin <- function(file, directory=logRoot(),...){
@@ -24,3 +24,4 @@ logOrigin <- function(file, directory=logRoot(),...){
 	precedent[is.na(precedent)] <- file[is.na(precedent)]
 	as.character(precedent)
 }
+
