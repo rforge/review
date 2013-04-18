@@ -1,0 +1,16 @@
+2.5
+
+* logRevert() is dropped.  It depended on assignments to the global environment, which are no longer supported under R 3.0.0.
+
+2.4.3
+
+* Sys.info() defines both 'user' and 'login'.  Where these differ, 'user' seems more consistently available and more closely identifiable with an actual person, consistent with intended use.  We have universally replaced 'login' references with 'user' references.
+
+2.4.2
+
+* on.attach replaces .First.lib.
+* a namespace is added.
+
+2.4.1
+
+* Version 2.4.1 was field-tested without code changes for over a year.  It supports the optional [[[origin]] concept, i.e., a file whose expiration should trigger further review of the attributed file. 
