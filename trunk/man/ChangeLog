@@ -9,7 +9,6 @@
 2.4.2
 
 * on.attach replaces .First.lib.
-* a namespace is added.
 
 2.4.1
 
