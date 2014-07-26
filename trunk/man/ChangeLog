@@ -1,3 +1,5 @@
+2.6 Inf and -Inf replace NA for calculations of head revisions and file revisions so that comparisons are defined.
+
 2.5
 
 * logRevert() is dropped.  It depended on assignments to the global environment, which are no longer supported under R 3.0.0.

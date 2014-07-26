@@ -11,6 +11,9 @@ function(
 	opath <- logTarget(file=origin,directory=directory,force=force)
 	revf <- sapply(fpath,revision)
 	revo <- sapply(opath,revision)
+	revf[is.na(revf)] <- -Inf
+	revo[is.na(revo)] <- -Inf
+	
 	logAppend(
 		new=logQueue(
 			file=file,

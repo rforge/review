@@ -10,6 +10,8 @@ function(directory=getwd()){
 	absOrigin <- logTarget(file=log$origin,directory=logRoot(directory),force=TRUE)
 	log$headf <- sapply(absFile,revision)
 	log$heado <- sapply(absOrigin,revision)
+	log$headf[is.na(log$headf)] <- Inf
+	log$heado[is.na(log$heado)] <- Inf
 	log <- log[,cols]
 	class(log) <- c('logSummary','data.frame')
 	log
